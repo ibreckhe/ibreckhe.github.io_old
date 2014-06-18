@@ -1,21 +1,31 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>
-            http://ibreckhe.github.io/blog/2014/06/17/zombie-ninjas-attack-a-survivors-retrospective/
-        </loc>
-        <lastmod>2014-06-17T17:31:05-07:00</lastmod>
+        <loc>http://ibreckhe.github.io/blog/2014/07/18/hello-world/</loc>
+        <lastmod>2014-06-18T12:14:03-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ibreckhe.github.io/blog/2014/07/18/report-template/</loc>
+        <lastmod>2014-06-18T12:49:17-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ibreckhe.github.io/blog/2014/07/19/curve-overlap/</loc>
+        <lastmod>2014-06-18T12:51:58-07:00</lastmod>
     </url>
     <url>
         <loc>http://ibreckhe.github.io/blog/archives/</loc>
-        <lastmod>2014-06-17T17:31:05-07:00</lastmod>
+        <lastmod>2014-06-18T12:51:58-07:00</lastmod>
     </url>
     <url>
         <loc>http://ibreckhe.github.io/</loc>
-        <lastmod>2014-06-17T17:31:05-07:00</lastmod>
+        <lastmod>2014-06-18T12:51:58-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ibreckhe.github.io/posts/</loc>
+        <lastmod>2014-06-18T12:51:58-07:00</lastmod>
     </url>
     <url>
         <loc>http://ibreckhe.github.io/robots.txt</loc>
-        <lastmod>2014-06-17T17:23:22-07:00</lastmod>
+        <lastmod>2014-06-17T23:48:19-07:00</lastmod>
     </url>
 </urlset>

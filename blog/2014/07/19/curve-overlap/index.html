@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Phenology and the Intersection of Two Curves - TinyPlant</title>
+  <meta name="author" content="Ian Breckheimer">
+
+  
+  <meta name="description" content="Phenology and the Intersection of Two Curves written Jul 19th, 2014 in Phenology, R My lab has been working on a project forecasting how the timing &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ibreckhe.github.io/blog/2014/07/19/curve-overlap">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="TinyPlant" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+
+</head>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  <body>
+    <a href="/" class="home-icon">
+      <img src="/images/home.png"/>
+    </a>
+
+    <article role="article" class="full-single-article">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h1>Phenology and the Intersection of Two Curves</h1>
+        <div class="meta">
+          written 
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-07-19T02:00:00-07:00" pubdate data-updated="true">Jul 19<span>th</span>, 2014</time>
+          
+
+in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/phenology/'>Phenology</a>, <a class='category' href='/blog/categories/r/'>R</a>
+  
+</span>
+
+
+        </div>
+        <p>My lab has been working on a project forecasting how the timing of flowering will vary over space and through time with climate change. To do this well, we need robust ways to quantify shifts in phenological timing. The approach we have taken so-far is to fit relatively simple functions to the observed data, but how do we quantify the amount of shift? Here’s where numerical integration comes in. Here’s an example with some simulated data. I’ve borrowed some of this code from <a href="http://stats.stackexchange.com/questions/12209/percentage-of-overlapping-regions-of-two-normal-distributions">here</a>.</p>
+
+<!-- more -->
+
+<p><img src="/images/Rainier_Meadow.JPG" alt="Rainier Meadow" /></p>
+
+<p>First we define the two functions representing the two phenological curves from different species, times, or places. In this case, the curves are quasi-gaussian, with functional forms we can easily fit using logistic regression.</p>
+
+<pre><code>f1 &lt;- function(x,a1,b1,c1) { exp(a1 + b1 * x + c1 * x^2)/(1 + exp(a1 + b1 * x + c1 * x^2)) }
+f2 &lt;- function(x,a2,b2,c2) { exp(a2 + b2 * log(x) + c2 * log(x)^2)/(1 + exp(a2 + b2 * log(x) + c2 * log(x)^2)) }
+</code></pre>
+
+<p>Next we want to convert the two functions into density functions (meaning that areas under the curves should sum to one). I’m doing this numerically to avoid a nasty integral. This works well unless the areas under the curve are really small.</p>
+
+<pre><code>f1_dens &lt;- function(x,a1,b1,c1) { 
+  y &lt;- f1(x,a1,b1,c1)
+  yi &lt;- integrate(f1, -Inf, +Inf, a1=a1, b1=b1, c1=c1)
+  return(y/yi[[1]])
+}
+ 
+f2_dens &lt;- function(x,a2,b2,c2) { 
+  y &lt;- f2(x,a2,b2,c2)
+  yi &lt;- integrate(f2, 1e-10, +Inf, a2=a2, b2=b2, c2=c2)
+  return(y/yi[[1]])
+}
+</code></pre>
+
+<p>Now we can define a function that returns the minimum of the two curves wherever they overlap.</p>
+
+<pre><code>min_f1f2_dens &lt;- function(x, a1, b1, c1, a2, b2, c2) {
+  f1 &lt;- f1_dens(x,a1,b1,c1) 
+  f2 &lt;- f2_dens(x,a2,b2,c2)
+  pmin(f1, f2)
+}
+</code></pre>
+
+<p>Now we can use some made-up parameters for each curve and plot them.</p>
+
+<pre><code>a1 &lt;- -65
+b1 &lt;- 40
+c1 &lt;- -6
+ 
+a2 &lt;- -2
+b2 &lt;- 7
+c2 &lt;- -6
+xs &lt;- seq(0.0001,5,by=0.01)
+ 
+y1s &lt;- f1(xs,a1,b1,c1)
+y2s &lt;- f2(xs,a2,b2,c2)
+y1d &lt;- f1_dens(xs,a1,b1,c1)
+y2d &lt;- f2_dens(xs,a2,b2,c2)
+ 
+yid &lt;- min_f1f2_dens(xs, a1, b1, c1, a2, b2, c2)
+xpd &lt;- c(xs, xs[1])
+ypd &lt;- c(yid, yid[1])
+ 
+par(mfrow=c(1,1))
+plot(xs, y1s, type="n", ylim=c(0, max(y1d,y2d)),xlab="Time", ylab="Flowering Density")
+lines(xs, y1d, lty="solid")
+lines(xs, y2d, lty="dotted")
+</code></pre>
+
+<p><img src="/images/figure/unnamed-chunk-4.png" alt="plot of chunk unnamed-chunk-4" /> </p>
+
+<p>The last step is to compute the area where the two curves intersect.</p>
+
+<pre><code>##Computes overlap
+over_dens &lt;- integrate(min_f1f2_dens, 0, Inf, a1=a1, b1=b1, c1=c1, a2=a2, b2=b2, c2=c2)
+</code></pre>
+
+<p>Finally we can plot everything to make sure it makes sense.</p>
+
+<pre><code>par(mfrow=c(1,1))
+plot(xs, y1s, type="n", ylim=c(0, max(y1d,y2d)),xlab="x", ylab="Density")
+polygon(xpd, ypd, col="gray")
+lines(xs, y1d, lty="solid")
+lines(xs, y2d, lty="dotted")
+title(main=paste("Overlap: ",round(over_dens[[1]],2)))
+</code></pre>
+
+<p><img src="/images/figure/unnamed-chunk-6.png" alt="plot of chunk unnamed-chunk-6" /> </p>
+
+<p>There are some analytical ways to do this for polynomial and Gaussian functions, but this approach is agnostic about what the functional form of the phenology curves are, so long as they have a finite integral.</p>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+<hr class="divider-short"/>
+
+<div class="archive-link">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        
+          <a class="pull-left" href="/blog/2014/07/18/report-template/" title="Previous Post: Adding Rich R Content">&laquo; Previous: Adding Rich R Content</a>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="her-row">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+  <a href="/"><h4>Home</h4></a>
+</div>
+
+<div class="col-md-2">
+  <div class="social-icon-list">
+   <a title="CV" href="Breckeimer_CV_2014.pdf"><img src="/images/glyphicons_010_envelope.png"/></a>
+    <a title="Publications" href="/pubs.html"><img src="/images/glyphicons_137_cogwheels.png"/></a>
+    <a title="Lab" href="http://faculty.washington.edu/jhrl/Index.html"><img src="/images/glyphicons_024_parents.png"/></a>
+    
+    <a href="https://twitter.com/ibreckhe"><img src="/images/glyphicons_social_31_twitter.png"/></a>
+    
+
+    
+    <a href="https://github.com/ibreckhe"><img src="/images/glyphicons_social_21_github.png"/></a>
+    
+
+    
+    <a href="mailto:ibreckhe@uw.edu"><img src="/images/glyphicons_social_39_e-mail.png"/></a>
+    
+  </div>
+</div>
+
+<div class="pull-right">
+  <h4>Powered by <a href="http://octopress.org/">Octopress</a>. Designed by <a href="http://AdrianArtiles.com">Adrian Artiles</a>.</h4>
+</div>
+
+
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

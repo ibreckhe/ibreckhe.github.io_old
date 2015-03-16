@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Phenology - TinyPlant</title>
+  <title>Easy Web Maps With R and Leaflet - TinyPlant</title>
   <meta name="author" content="Ian Breckheimer">
 
   
-  <meta name="description" content="Category: Phenology">
+  <meta name="description" content="I’ve been using R as a de-facto Geographic Information System (GIS) for a long time, and I’ve relied heavily on the excellent rgdal, Maptools, and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ibreckhe.github.ioblog/categories/phenology">
+  <link rel="canonical" href="http://ibreckhe.github.io/blog/2015/03/16/leaflet-maps">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="TinyPlant" type="application/atom+xml">
@@ -93,35 +93,110 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Phenology</h1>
+    
+      <h1 class="entry-title">Easy Web Maps With R and Leaflet</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-03-16T02:00:00-07:00" pubdate data-updated="true">Mar 16<span>th</span>, 2015</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>I’ve been using R as a de-facto Geographic Information System (GIS) for a long time, and I’ve relied heavily on the excellent rgdal, Maptools, and raster packages to process spatial data.  One thing has always bugged me about this workflow, however. If I want to check or explore geographic data by clicking around on a map, I nearly always have to export it and open it up in another program like ArcGIS or QGIS. That’s why I was really excited to learn that the folks at Rstudio have come up with a cool solution: they’ve written R wrappers for the leaflet javascript library which allows folks to quickly overlay vector data on an interactive web map that allows you to pan and zoom. In this post I’ll describe how to make a simple map that you can use to explore data, or post to the web.</p>
 
-  
-  <h2>2014</h2>
+<!-- more -->
 
-<article>
-  
-<h1><a href="/blog/2014/07/19/curve-overlap/">Phenology and the Intersection of Two Curves</a></h1>
-<time datetime="2014-07-19T02:00:00-07:00" pubdate><span class='month'>Jul</span> <span class='day'>19</span> <span class='year'>2014</span></time>
+<p>If you are using Rstudio, then this map appears alongside your code
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com">http://rmarkdown.rstudio.com</a>.</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/phenology/'>Phenology</a>, <a class='category' href='/blog/categories/r/'>R</a></span>
-</footer>
+<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
 
+<pre><code>summary(cars)
 
-</article>
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+</code></pre>
 
+<p>You can also embed plots, for example:</p>
+
+<p><img src="/images/figure/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" /> </p>
+
+<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Ian Breckheimer</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-03-16T02:00:00-07:00" pubdate data-updated="true">Mar 16<span>th</span>, 2015</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/gis/'>GIS</a>, <a class='category' href='/blog/categories/r/'>R</a>, <a class='category' href='/blog/categories/leaflet/'>leaflet</a>, <a class='category' href='/blog/categories/maps/'>maps</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ibreckhe.github.io/blog/2015/03/16/leaflet-maps/" data-via="ibreckhe" data-counturl="http://ibreckhe.github.io/blog/2015/03/16/leaflet-maps/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/07/19/curve-overlap/" title="Previous Post: Phenology and the Intersection of Two Curves">&laquo; Phenology and the Intersection of Two Curves</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

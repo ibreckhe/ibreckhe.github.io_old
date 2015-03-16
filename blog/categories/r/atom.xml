@@ -4,7 +4,7 @@
   <title><![CDATA[Category: R | TinyPlant]]></title>
   <link href="http://ibreckhe.github.io/blog/categories/r/atom.xml" rel="self"/>
   <link href="http://ibreckhe.github.io/"/>
-  <updated>2014-06-18T14:58:03-07:00</updated>
+  <updated>2015-03-16T16:23:21-07:00</updated>
   <id>http://ibreckhe.github.io/</id>
   <author>
     <name><![CDATA[Ian Breckheimer]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Easy Web Maps With R and Leaflet]]></title>
+    <link href="http://ibreckhe.github.io/blog/2015/03/16/leaflet-maps/"/>
+    <updated>2015-03-16T02:00:00-07:00</updated>
+    <id>http://ibreckhe.github.io/blog/2015/03/16/leaflet-maps</id>
+    <content type="html"><![CDATA[<p>I’ve been using R as a de-facto Geographic Information System (GIS) for a long time, and I’ve relied heavily on the excellent rgdal, Maptools, and raster packages to process spatial data.  One thing has always bugged me about this workflow, however. If I want to check or explore geographic data by clicking around on a map, I nearly always have to export it and open it up in another program like ArcGIS or QGIS. That’s why I was really excited to learn that the folks at Rstudio have come up with a cool solution: they’ve written R wrappers for the leaflet javascript library which allows folks to quickly overlay vector data on an interactive web map that allows you to pan and zoom. In this post I’ll describe how to make a simple map that you can use to explore data, or post to the web.</p>
+
+<!-- more -->
+
+<p>If you are using Rstudio, then this map appears alongside your code
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com">http://rmarkdown.rstudio.com</a>.</p>
+
+<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
+
+<pre><code>summary(cars)
+
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+</code></pre>
+
+<p>You can also embed plots, for example:</p>
+
+<p><img src="/images/figure/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" /> </p>
+
+<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Phenology and the Intersection of Two Curves]]></title>

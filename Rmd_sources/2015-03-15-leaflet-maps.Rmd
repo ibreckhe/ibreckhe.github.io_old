@@ -8,11 +8,11 @@ published: false
 status: process
 ---
 
-I've been using R as a de-facto Geographic Information System (GIS) for a long time, and I've relied heavily on the excellent rgdal, Maptools, and raster packages to process spatial data.  One thing has always bugged me about this workflow, however. If I want to check or explore geographic data by clicking around on a map, I nearly always have to export it and open it up in another program like ArcGIS or QGIS. That's why I was really excited to learn that the folks at Rstudio have come up with a cool solution: they've written R wrappers for the leaflet javascript library which allows folks to quickly overlay vector data on an interactive web map that allows you to pan and zoom. In this post I'll describe how to make a simple map that you can use to explore data interactively or share on Rpubs or a self-hosted website.
+I've been using R as a [Geographic Information System](https://en.wikipedia.org/wiki/Geographic_information_system) (GIS) for a long time, and I've relied heavily on the excellent [rgdal](http://cran.r-project.org/web/packages/rgdal/index.html), [maptools](http://cran.r-project.org/web/packages/maptools/index.html), and [raster](http://cran.r-project.org/web/packages/raster/index.html) packages to process spatial data.  One thing has always bugged me about this workflow, however. If I want to check or explore geographic data by clicking around on a map, I nearly always have to export it and open it up in another program like [ArcGIS](http://www.esri.com/software/arcgis) or [QGIS](http://www2.qgis.org/en/site/). That's why I was really excited to learn that the folks at [Rstudio](http://www.rstudio.com/) have come up with a cool solution: they've written R wrappers for the [leaflet](http://leafletjs.com/) javascript library which allows folks to quickly overlay vector data on an interactive web map. 
 
 <!-- more -->
 
-First, here's the finished map with a legend:
+First, here's the finished map with a legend. This is what we are shooting for:
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, error=FALSE,}
 ##Simple map of Mt. Rainier using Leaflet
@@ -104,9 +104,12 @@ m <- m %>% addMarkers(lat=popups[,1],lng=popups[,2],popup=popups$Label,options=m
 m
 ```
 
-The map shows the number of accurately geo-tagged photos uploaded to the Flickr and iNaturalist websites from 2009 to 2013. The size and color of the dots is proportional to the number of photos appearing in 500m square bins overlayed on the park, and the park boundary is shown in white.
+The map shows the number of accurately geo-tagged photos uploaded to the Flickr and iNaturalist websites from 2009 to 2013 in Mt. Rainier National Park, WA. The size and color of the dots is proportional to the number of photos appearing in 500m square bins overlayed on the park, and the park boundary is shown in white. We are using this data to monitor the timing of seasonal wildflower blooms, a project called [MeadoWatch](http://www.meadowatch.org)
 
-**Installing the leaflet R package**
+In this post I'll describe how to build this map and share it on Rpubs or a self-hosted website. This assumes you have some familiarity with R and maniupulating spatial data. For a great compendium of resources on GIS in R, see [here](http://spatial.ly/r/)
+
+
+##Installing the leaflet R package##
 
 We will build this map up layer by layer, using data that is available <here>, but first we need to set up our R workspace:
 
@@ -122,19 +125,17 @@ Next we need to install the leaflet R package. It's not up on CRAN yet, but you 
 require(devtools)
 devtools::install_github("rstudio/leaflet")
 ```
-**Making a basic map**
+##Making a basic map##
 
-Leaflet overlays R data onto tiled web maps of various sources. To use the default tile set (OpenStreetMap), all you need to do is call the `leaflet()` function and add tiles to it. If you are using the newest version of Rstudio, then this map appears alongside your code in the viewer pane.
+Leaflet overlays R data onto tiled web maps of various sources. To use the default tile set ([OpenStreetMap](http://www.openstreetmap.org/)), all you need to do is call the `leaflet()` function and add tiles to it using the `addTiles()` function. If you are using the newest version of Rstudio, then this map appears alongside your code in the viewer pane.
 
 ```{r}
 leaflet() %>% addTiles()
 ```
 
-What the line above does is use the `leaflet()` function to create an HTML widget object, and then uses the `addTiles` function to populate that widget with tiles from the web. 
+The syntax might be a bit unfamiliar because of the pipe (`%>%`) operator. What it does is input the results of the left-hand expression as the first argument of the right-hand expression. The main advantage of using the pipe is that it allows related operations to be chained together without nesting functions using the confusing `f(g(x))` syntax. 
 
-The syntax might be a bit unfamiliar because of the pipe (`%>%`) operator. What this does is input the results of the left-hand expression as the first argument of the right-hand expression. The main advantage of using the pipe is that it allows related operations to be chained together without nesting functions using the confusing 'f(g(x))' syntax. 
-
-**Adding custom tiles**
+##Adding custom tiles##
 
 If your primary goal is just to explore geographic data, then the default tile set is just fine. If you want to share your map with others, however, it might be nice to have some creative control over how the tiles look. Luckily, it's pretty straight-forward to change the background map. Many web mapping services use a standard URL scheme to organize access to the individual tile images, so we can change tile sets by specifying a URL template. 
 
@@ -152,7 +153,7 @@ m <- leaflet() %>% addTiles(MBTemplate) %>% setView(lat=46.854039, lng=-121.7603
 m
 ```
 
-**Preparing data for leaflet**
+##Preparing data for leaflet##
 
 Next we want to overlay some of our own data on this map. Before we do that, we need to re-project the data into the coordinate system used by leaflet and most web maps: WGS84 Geographic Coordinates. To do this we will read our data into R, assign a coordinate system, and then use the `spTransform` function from the package `rgdal` to do the heavy-lifting:
 
@@ -169,7 +170,7 @@ proj4string(parkbound) <- "+proj=utm +zone=10 +ellps=GRS80 +units=m +no_defs"
 parkbound_latlng <- spTransform(parkbound,CRSobj=CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"))
 ```
 
-**Adding data to the map**
+##Adding data to the map##
 
 Now the layers are in a geographic coordinate system suitable for overlay onto a web map. We can add the park boundary as a polygon using the `addPolygons` function, specifying the fill and line colors. There are corresponding `add*`functions for all of the major types of vector geographic data.
  
@@ -180,7 +181,7 @@ m <- m %>% addPolygons(data=parkbound_latlng,
 m
 ```
 
-**Visualizing data with size and color**
+##Visualizing data with size and color##
 
 One of the most powerful things about GIS programs is their ability to display geographic data with symbols that vary in size, color, or shape depending on the values of their attributes. Next, we want to overlay the point dataset on the map to identify the locations where the most photos are taken.
 
@@ -217,12 +218,66 @@ m  <- m %>% addCircleMarkers(lng=coordinates(photos_latlng)[,1],
 m
 ```
 
-**Adding a legend**
+##Adding a legend##
 
+Unfortunately, the leaflet package doesn't yet have good built-in capabilities for adding a legend, so we will have to use a work-around. 
+In the bottom-right of each map is small transparent panel called the "Attribution" panel. This is important because lots of tile map providers require that you give them credit, and the attribution panel allows you to do that. We will take advantage of the fact that the addTiles() function allows us to insert arbitrary HTML into this field, and the result is rendered on the map. Since this only accepts plain HTML (no embedded CSS), we need to create the legend as a separate image, and then host it somewhere. In this case, I'm using the base function `legend()` to create an image of the legend, and then uploading it to this page hosted on GitHub.
 
+```{r warning=FALSE}
+leg_breaks <- c(1,10,100)
+leg_size <- log(leg_breaks+1)
+leg_col <- rgb(ramp(trans_fun(leg_breaks)),maxColorValue=256)
 
+png(filename="/Users/ian/code/ibreckhe.github.io/source/images/web_map_legend.png",width=50,height=70,unit="px",bg=NULL)
+par(mar=c(1,1,0,0))
+plot(leg_breaks,type="n",axes=FALSE,xlab="",ylab="")
+legend("center",pch=21,col="black",pt.bg=leg_col,pt.cex=leg_size,
+       legend=c("1","10","100"),bty="n",pt.lwd=1,y.intersp=1.2,xpd=TRUE)
+dev.off()
+```
 
+Finally we can add the HTML legend including the image we just created:
 
+```{r}
+##HTML for the legend:
+leg_html <-   "<div class='my-legend'>
+              <div class='legend-title'>Flickr Photos <br/> (2009-2013)</div>
+              <div class='legend-scale'>
+              <img src='https://raw.githubusercontent.com/ibreckhe/ibreckhe.github.io/master/images/web_map_legend.png' alt='Legend' style='width:50px;height:70px'>
+              </div>
+              <div class='legend-source'>Map: <a href='http://ibreckhe.github.io'>Ian Breckheimer</a><br/>
+                  Data: <a href='http://www.flickr.com'>Flickr</a></div>
+              </div>"
 
+m <- m %>% addTiles(MBTemplate,attribution=leg_html)
+m
+```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+##Adding interactive content##
+
+Using the leaflet javascript library with tools like D3 allow for virtually unlimited customization of interactive maps. The R bindings for interactivity in the current leaflet package are pretty simple, but they give us the ability to make maps with pop-up markers that reveal more information. Here's a basic example:
+
+```{r}
+paradise <- c(46.785571, -121.736838)
+sunrise <- c(46.914467, -121.643628)
+spray <- c(46.920867, -121.834865)
+popups <- data.frame(rbind(paradise,sunrise,spray))
+popups$Label <- c("Paradise","Sunrise","Spray Park")
+
+colnames(popups) <- c("latitude","longitude","Label")
+
+##Adds Popup points of interest.
+m <- m %>% addMarkers(lat=popups[,1],lng=popups[,2],popup=popups$Label,options=markerOptions(clickable=TRUE))
+m
+```
+We've now labeled the three of the most-photographed locations on our map! Click on the markers to see the pop-ups.
+
+##Publishing the map##
+
+Now that we have a serviceable map, we can share it with others. There are (at least) three ways to do that:
+
+1. *Export the map widget as a standalone HTML file.* This file can be shared with anyone, and as long as they have a modern web browser and an internet connection, they should be able to see your map. You can do this in Rstudio by select *"Export to HTML..."* in the viewer pane.
+
+2. *Push the widget to Rpubs.* If you are working in RStudio, then you can also upload the map to the Rpubs figure-sharing service by clicking the button in the top-right corner of the viewer pane or selecting *"Export>Publish to Rpubs..."*
+
+2. *Host the widget on a website using Github Pages.* The html widget can be dropped into any webpage, and will often display just fine. I found that hosting these maps on my own site was a bit of a challenge, and I needed to make sure that the page headers included links to a few scripts provided by Rstudio here.

@@ -20,90 +20,90 @@ Tables can be used with the knitr::kable function.
 <table>
  <thead>
   <tr>
-   <th align="left">   </th>
-   <th align="center"> mpg </th>
-   <th align="center"> cyl </th>
-   <th align="center"> disp </th>
-   <th align="center"> hp </th>
-   <th align="center"> drat </th>
-   <th align="center"> wt </th>
-   <th align="center"> qsec </th>
-   <th align="center"> vs </th>
-   <th align="center"> am </th>
-   <th align="center"> gear </th>
-   <th align="center"> carb </th>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:center;"> mpg </th>
+   <th style="text-align:center;"> cyl </th>
+   <th style="text-align:center;"> disp </th>
+   <th style="text-align:center;"> hp </th>
+   <th style="text-align:center;"> drat </th>
+   <th style="text-align:center;"> wt </th>
+   <th style="text-align:center;"> qsec </th>
+   <th style="text-align:center;"> vs </th>
+   <th style="text-align:center;"> am </th>
+   <th style="text-align:center;"> gear </th>
+   <th style="text-align:center;"> carb </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td align="left"> Mazda RX4 </td>
-   <td align="center"> 21.0 </td>
-   <td align="center"> 6 </td>
-   <td align="center"> 160 </td>
-   <td align="center"> 110 </td>
-   <td align="center"> 3.90 </td>
-   <td align="center"> 2.620 </td>
-   <td align="center"> 16.46 </td>
-   <td align="center"> 0 </td>
-   <td align="center"> 1 </td>
-   <td align="center"> 4 </td>
-   <td align="center"> 4 </td>
+   <td style="text-align:left;"> Mazda RX4 </td>
+   <td style="text-align:center;"> 21.0 </td>
+   <td style="text-align:center;"> 6 </td>
+   <td style="text-align:center;"> 160 </td>
+   <td style="text-align:center;"> 110 </td>
+   <td style="text-align:center;"> 3.90 </td>
+   <td style="text-align:center;"> 2.620 </td>
+   <td style="text-align:center;"> 16.46 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 4 </td>
+   <td style="text-align:center;"> 4 </td>
   </tr>
   <tr>
-   <td align="left"> Mazda RX4 Wag </td>
-   <td align="center"> 21.0 </td>
-   <td align="center"> 6 </td>
-   <td align="center"> 160 </td>
-   <td align="center"> 110 </td>
-   <td align="center"> 3.90 </td>
-   <td align="center"> 2.875 </td>
-   <td align="center"> 17.02 </td>
-   <td align="center"> 0 </td>
-   <td align="center"> 1 </td>
-   <td align="center"> 4 </td>
-   <td align="center"> 4 </td>
+   <td style="text-align:left;"> Mazda RX4 Wag </td>
+   <td style="text-align:center;"> 21.0 </td>
+   <td style="text-align:center;"> 6 </td>
+   <td style="text-align:center;"> 160 </td>
+   <td style="text-align:center;"> 110 </td>
+   <td style="text-align:center;"> 3.90 </td>
+   <td style="text-align:center;"> 2.875 </td>
+   <td style="text-align:center;"> 17.02 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 4 </td>
+   <td style="text-align:center;"> 4 </td>
   </tr>
   <tr>
-   <td align="left"> Datsun 710 </td>
-   <td align="center"> 22.8 </td>
-   <td align="center"> 4 </td>
-   <td align="center"> 108 </td>
-   <td align="center"> 93 </td>
-   <td align="center"> 3.85 </td>
-   <td align="center"> 2.320 </td>
-   <td align="center"> 18.61 </td>
-   <td align="center"> 1 </td>
-   <td align="center"> 1 </td>
-   <td align="center"> 4 </td>
-   <td align="center"> 1 </td>
+   <td style="text-align:left;"> Datsun 710 </td>
+   <td style="text-align:center;"> 22.8 </td>
+   <td style="text-align:center;"> 4 </td>
+   <td style="text-align:center;"> 108 </td>
+   <td style="text-align:center;"> 93 </td>
+   <td style="text-align:center;"> 3.85 </td>
+   <td style="text-align:center;"> 2.320 </td>
+   <td style="text-align:center;"> 18.61 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 4 </td>
+   <td style="text-align:center;"> 1 </td>
   </tr>
   <tr>
-   <td align="left"> Hornet 4 Drive </td>
-   <td align="center"> 21.4 </td>
-   <td align="center"> 6 </td>
-   <td align="center"> 258 </td>
-   <td align="center"> 110 </td>
-   <td align="center"> 3.08 </td>
-   <td align="center"> 3.215 </td>
-   <td align="center"> 19.44 </td>
-   <td align="center"> 1 </td>
-   <td align="center"> 0 </td>
-   <td align="center"> 3 </td>
-   <td align="center"> 1 </td>
+   <td style="text-align:left;"> Hornet 4 Drive </td>
+   <td style="text-align:center;"> 21.4 </td>
+   <td style="text-align:center;"> 6 </td>
+   <td style="text-align:center;"> 258 </td>
+   <td style="text-align:center;"> 110 </td>
+   <td style="text-align:center;"> 3.08 </td>
+   <td style="text-align:center;"> 3.215 </td>
+   <td style="text-align:center;"> 19.44 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 3 </td>
+   <td style="text-align:center;"> 1 </td>
   </tr>
   <tr>
-   <td align="left"> Hornet Sportabout </td>
-   <td align="center"> 18.7 </td>
-   <td align="center"> 8 </td>
-   <td align="center"> 360 </td>
-   <td align="center"> 175 </td>
-   <td align="center"> 3.15 </td>
-   <td align="center"> 3.440 </td>
-   <td align="center"> 17.02 </td>
-   <td align="center"> 0 </td>
-   <td align="center"> 0 </td>
-   <td align="center"> 3 </td>
-   <td align="center"> 2 </td>
+   <td style="text-align:left;"> Hornet Sportabout </td>
+   <td style="text-align:center;"> 18.7 </td>
+   <td style="text-align:center;"> 8 </td>
+   <td style="text-align:center;"> 360 </td>
+   <td style="text-align:center;"> 175 </td>
+   <td style="text-align:center;"> 3.15 </td>
+   <td style="text-align:center;"> 3.440 </td>
+   <td style="text-align:center;"> 17.02 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 3 </td>
+   <td style="text-align:center;"> 2 </td>
   </tr>
 </tbody>
 </table>
@@ -119,18 +119,7 @@ Links to websites can be included [like this](http://www.google.com).
  
 Embedding images with control over the size and resolution is a bit tricky. I like to import my PNG images as R objects, that way they are treated like any other plot.
  
-<img src="/images/figure/unnamed-chunk-2.png" title="This is also a caption." alt="This is also a caption." style="display: block; margin: auto;" />
- 
-**Citations:**
- 
-It is also straightforward to include inline citations like this using the package `knitcitations` package (<span title="Abrams P, Ruokolainen L, Shuter B and McCann K (2012). 'Harvesting Creates Ecological Traps: Consequences of Invisible Mortality Risks in Predator–Prey Metacommunities.' Ecology, 93, pp. 281-293. ISSN 0012-9658."><a href="http://dx.doi.org/10.1890/11-0011.1">Abrams et al. (2012)</a></span>; <span title="Bolnick D, Ingram T, Stutz W, Snowberg L, Lau O and Paull J (2010). 'Ecological Release From Interspecific Competition Leads to Decoupled Changes in Population And Individual Niche Width.' Proceedings of The Royal Society B: Biological Sciences, 277, pp. 1789-1797. ISSN 0962-8452."><a href="http://dx.doi.org/10.1098/rspb.2010.0018">Bolnick et al. (2010)</a></span>).
- 
-And include a dynamically generated list of references:
- 
-**Works Cited:**
+<img src="/images/figure/unnamed-chunk-2-1.png" title="This is also a caption." alt="This is also a caption." style="display: block; margin: auto;" />
 
-- Peter A. Abrams, Lasse Ruokolainen, Brian J. Shuter, Kevin S. McCann,   (2012) Harvesting Creates Ecological Traps: Consequences of Invisible Mortality Risks in Predator–Prey Metacommunities.  *Ecology*  **93**  281-293  [10.1890/11-0011.1](http://dx.doi.org/10.1890/11-0011.1)
-- D. I. Bolnick, T. Ingram, W. E. Stutz, L. K. Snowberg, O. L. Lau, J. S. Paull,   (2010) Ecological Release From Interspecific Competition Leads to Decoupled Changes in Population And Individual Niche Width.  *Proceedings of The Royal Society B: Biological Sciences*  **277**  1789-1797  [10.1098/rspb.2010.0018](http://dx.doi.org/10.1098/rspb.2010.0018)
- 
- 
-*Source code for this document is available [here](https://github.com/ibreckhe/code/blob/master/report_template.Rmd)*
+
+

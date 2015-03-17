@@ -11,7 +11,7 @@
   background-repeat: repeat;
   background-size: cover;
   margin: 0px;
-  padding: 100px 0px;
+  padding: 5px 0px;
   z-index: -1;
   height: 350px;
   text-align: center;
@@ -23,6 +23,7 @@
     font-size: 50px;
     line-height: 1;
     margin-bottom: 2px;
+    margin-top: 100px;
     outline: 0;
     word-break: break-word;
   }
@@ -36,19 +37,19 @@
 }
 
 .home-page {
-  margin-top: 350px;
+  margin-top: 250px;
 }
 
 .her-row {
   background: #f9f9f9;
   border-top: 1px solid #f2f2f0;
   border-bottom: 1px solid #f2f2f0;
-  padding: 1px 0px;
+  padding: 12px 0px;
 
   h4 {
     font-weight: 700;
     font-style: normal;
-    padding-bottom: 1px;
+    padding-bottom: 12px;
     text-transform: uppercase;
     font-size: 11px;
     letter-spacing: .1em;
@@ -58,7 +59,7 @@
 
 .article-list {
   background-color: white;
-  padding-top: 30px;
+  padding-top: 60px;
 
   article {
     padding-bottom: 30px;
@@ -83,6 +84,46 @@
     }
   }
 }
+
+.pub-list {
+  background-color: white;
+  padding-top: 30px;
+  padding-left: 60px;
+  padding-right: 60px;
+  
+  ul.a {
+    list-style-type: circle;
+    font-size: 14px;
+	}
+	
+  li {
+  margin: 0 0 30px 0;
+  }
+
+  article {
+    padding-bottom: 30px;
+
+    .full-article-link {
+      font-size: 14px;
+    }
+
+    h2 > a {
+      color: black;
+      font-weight: 700;
+      font-style: normal;
+      line-height: 1.2;
+    }
+
+    p {
+      color: #666665;
+      font-weight: 300;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+  }
+}
+
 
 article {
   .meta {
@@ -109,56 +150,54 @@ article {
 
 .home-icon {
   position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 45px;
-  height: 45px;
+  top: 10px;
+  left: 10px;
+  width: 44px;
+  height: 44px;
   z-index: 700;
-  background-color: rgba(0,0,0,0);
+  background-color: #333332;
   text-align: center;
   border: 0;
 
   img {
     border: none;
-    width: 45px;
-    height: 45px;
-    margin-top: 0px;
+    width: 25px;
+    height: 25px;
+    margin-top: 9px;
   }
 }
 
-.social-icon-list 
-	a {
-	  opacity: 0.3;
-  
-	  &:hover {
-		opacity: 0.6;
-	  }
+.social-icon-list a {
+  opacity: 0.3;
+  &:hover {
+    opacity: 0.6;
+  }
 }
 
 .divider {
   display: block;
   width: 14%;
-  margin: 40px auto 40px auto;
+  margin: 50px auto 40px auto;
   border: 0;
   border-top: 1px solid #dededc;
 }
 
 .divider-short {
   @extend .divider;
-  margin-top: 5px;
+  margin-top: 20px;
 }
 
 .home-field {
   background-color: white;
-  text-align: center;
 
   #about-me {
-    margin-bottom: 5px;
+    margin-bottom: 1px;
 
     line-height: 1.0;
 
     .social-icon-list {
-      margin-top: -20px;
+      margin-top: 5px;
+      text-align: center;
     }
   }
 }

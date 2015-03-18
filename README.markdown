@@ -4,6 +4,8 @@ This is the source code for Ian Breckheimer's personal website, hosted at [https
 
 The code is based on [Octopress](http://octopress.org/), and the style is adapted from the[MediumFox](https://github.com/sevenadrian/MediumFox) theme by Adrian Artiles.
 
+The strategy for integrating Rmarkdown into Octopress is modified from instructions appearing on [Homer White's blog](http://statistics.rainandrhino.org/blog/2014/04/13/roctopress/).
+
 ## Updating static pages
 
 1. To create or update a static page, add the html to the `/source/` directory. You can modify the style in the file `~/sass/base/_layout.scss`

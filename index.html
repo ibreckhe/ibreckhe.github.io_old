@@ -14,7 +14,7 @@
 
   
   <meta name="description" content="TinyPlant
-Spatial Ecology and Open Source Science Ian Breckheimer, PhD Candidate, University of Washington. Easy Web Maps With R and Leaflet I’ve &hellip;">
+Spatial Ecology and Open Source Science Ian Breckheimer, PhD Candidate, University of Washington. 100 Years of Change at Mt. Rainier I&# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -125,12 +125,65 @@ Spatial Ecology and Open Source Science Ian Breckheimer, PhD Candidate, Universi
           <div class="row">
             <div class="col-md-offset-3 col-md-6">
               <article>
+  <h2><a href="/blog/2015/03/17/100-years-of-change-at-mt-rainier/">100 Years of Change at Mt. Rainier</a></h2>
+  
+  <p>
+    <p>I&#8217;ve always been fascinated by old photographs, so last year when I found an old panoramic photo of Mt. Rainier in Pat Pringle&#8217;s excellent <a href="http://www.dnr.wa.gov/ResearchScience/Topics/GeologyPublicationsLibrary/Pages/pub_ic107.aspx">Roadside Geology of Mount Rainier National Park and Vicinity</a> I got really excited. The photo was taken in 1904 by W.P. Romans, and shows the northwest slopes of the mountain in the vicinity of Spray Park. The original is maintained by the Washington State Historical Society</p>
+
+
+
+
+  </p>
+  <span class="meta">
+    written 
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-03-17T15:38:35-07:00" pubdate data-updated="true">Mar 17<span>th</span>, 2015</time>
+    
+
+in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/rainier/'>Rainier</a>, <a class='category' href='/blog/categories/re-photo/'>re-photo</a>, <a class='category' href='/blog/categories/treeline/'>treeline</a>
+  
+</span>
+
+
+  </span>
+
+  
+    <a class="full-article-link pull-right" rel="full-article" href="/blog/2015/03/17/100-years-of-change-at-mt-rainier/">Read on &rarr;</a>
+  
+</article>
+
+            </div>
+          </div>
+        
+          
+          <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+              <article>
   <h2><a href="/blog/2015/03/16/leaflet-maps/">Easy Web Maps With R and Leaflet</a></h2>
   
   <p>
-    <p>I’ve been using R as a <a href="https://en.wikipedia.org/wiki/Geographic_information_system">Geographic Information System</a> (GIS) for a long time, and I’ve relied heavily on the excellent <a href="http://cran.r-project.org/web/packages/rgdal/index.html">rgdal</a>, <a href="http://cran.r-project.org/web/packages/maptools/index.html">maptools</a>, and <a href="http://cran.r-project.org/web/packages/raster/index.html">raster</a> packages to process spatial data.  One thing has always bugged me about this workflow, however. If I want to check or explore geographic data by clicking around on a map, I nearly always have to export it and open it up in another program like <a href="http://www.esri.com/software/arcgis">ArcGIS</a> or <a href="http://www2.qgis.org/en/site/">QGIS</a>. That’s why I was really excited to learn that the folks at <a href="http://www.rstudio.com/">Rstudio</a> have come up with a cool solution: they’ve written R wrappers for the <a href="http://leafletjs.com/">leaflet</a> javascript library which allows folks to quickly overlay vector data on an interactive web map.</p>
+    <p>I&#8217;ve been using R as a <a href="https://en.wikipedia.org/wiki/Geographic_information_system">Geographic Information System</a> (GIS) for a long time, and I&#8217;ve relied heavily on the excellent <a href="http://cran.r-project.org/web/packages/rgdal/index.html">rgdal</a>, <a href="http://cran.r-project.org/web/packages/maptools/index.html">maptools</a>, and <a href="http://cran.r-project.org/web/packages/raster/index.html">raster</a> packages to process spatial data.  One thing has always bugged me about this workflow, however. If I want to check or explore geographic data by clicking around on a map, I nearly always have to export it and open it up in another program like <a href="http://www.esri.com/software/arcgis">ArcGIS</a> or <a href="http://www2.qgis.org/en/site/">QGIS</a>. That&#8217;s why I was really excited to learn that the folks at <a href="http://www.rstudio.com/">Rstudio</a> have come up with a cool solution: they&#8217;ve written R wrappers for the <a href="http://leafletjs.com/">leaflet</a> javascript library which allows folks to quickly overlay vector data on an interactive web map.</p>
 
-<p>In this post I’ll describe how to build this map and share it on Rpubs or a self-hosted website. This assumes you have some familiarity with R and manipulating spatial data. For a great compendium of resources on GIS in R, see <a href="http://spatial.ly/r/">here</a></p>
+
+
+
+<p>In this post I&#8217;ll describe how to build this map and share it on Rpubs or a self-hosted website. This assumes you have some familiarity with R and manipulating spatial data. For a great compendium of resources on GIS in R, see <a href="http://spatial.ly/r/">here</a></p>
+
+
 
 
   </p>
@@ -176,7 +229,9 @@ in
   <h2><a href="/blog/2014/07/19/curve-overlap/">Phenology and the Intersection of Two Curves</a></h2>
   
   <p>
-    <p>My lab has been working on a project forecasting how the timing of flowering will vary over space and through time with climate change. To do this well, we need robust ways to quantify shifts in phenological timing. The approach we have taken so-far is to fit relatively simple functions to the observed data, but how do we quantify the amount of shift? Here’s where numerical integration comes in. Here’s an example with some simulated data. I’ve borrowed some of this code from <a href="http://stats.stackexchange.com/questions/12209/percentage-of-overlapping-regions-of-two-normal-distributions">here</a>.</p>
+    <p>My lab has been working on a project forecasting how the timing of flowering will vary over space and through time with climate change. To do this well, we need robust ways to quantify shifts in phenological timing. The approach we have taken so-far is to fit relatively simple functions to the observed data, but how do we quantify the amount of shift? Here&#8217;s where numerical integration comes in. Here&#8217;s an example with some simulated data. I&#8217;ve borrowed some of this code from <a href="http://stats.stackexchange.com/questions/12209/percentage-of-overlapping-regions-of-two-normal-distributions">here</a>.</p>
+
+
 
 
   </p>
@@ -222,7 +277,9 @@ in
   <h2><a href="/blog/2014/07/18/report-template/">Adding Rich R Content</a></h2>
   
   <p>
-    <p>With a bit of tweaking, you can create rich documents with R markdown that combine text, figures, equations and tables that are generated by R on the fly. Now if only blogs could get a DOI…</p>
+    <p>With a bit of tweaking, you can create rich documents with R markdown that combine text, figures, equations and tables that are generated by R on the fly. Now if only blogs could get a DOI&#8230;</p>
+
+
 
 
   </p>
@@ -269,6 +326,8 @@ in
   
   <p>
     <p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com">http://rmarkdown.rstudio.com</a>.</p>
+
+
 
 
   </p>

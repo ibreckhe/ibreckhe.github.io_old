@@ -91,6 +91,56 @@
   padding-left: 60px;
   padding-right: 60px;
   
+  ul{
+    display:inline;
+  } 
+  
+  ul.a {
+    list-style-type: circle;
+    font-size: 14px;
+	}
+	
+  li {
+  margin: 0 0 30px 0;
+  }
+
+  article {
+    padding-bottom: 30px;
+
+    .full-article-link {
+      font-size: 14px;
+    }
+
+    h2 > a {
+      color: black;
+      font-weight: 700;
+      font-style: normal;
+      line-height: 1.2;
+    }
+
+    p {
+      color: #666665;
+      font-weight: 300;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+  }
+}
+
+.bio {
+
+  table {
+	  background-color: white;
+	  padding-top: 30px;
+	  padding-left: 60px;
+	  padding-right: 60px;
+  }
+  
+  img {
+    float:right;
+  }
+  
   ul.a {
     list-style-type: circle;
     font-size: 14px;

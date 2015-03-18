@@ -1,33 +1,38 @@
-## What is Octopress?
+## What is ibreckhe.github.io?
 
-Octopress is [Jekyll](https://github.com/mojombo/jekyll) blogging at its finest.
+This is the source code for Ian Breckheimer's personal website, hosted at [https://ibreckhe.github.io](https://ibreckhe.github.io)
 
-1. **Octopress sports a clean responsive theme** written in semantic HTML5, focused on readability and friendliness toward mobile devices.
-2. **Code blogging is easy and beautiful.** Embed code (with [Solarized](http://ethanschoonover.com/solarized) styling) in your posts from gists, jsFiddle or from your filesystem.
-3. **Third party integration is simple** with built-in support for Pinboard, Delicious, GitHub Repositories, Disqus Comments and Google Analytics.
-4. **It's easy to use.** A collection of rake tasks simplifies development and makes deploying a cinch.
-5. **Ships with great plug-ins** some original and others from the Jekyll community &mdash; tested and improved.
+The code is based on [Octopress](http://octopress.org/), and the style is adapted from the[MediumFox](https://github.com/sevenadrian/MediumFox) theme by Adrian Artiles.
 
-**Note**: Octopress requires a minimum Ruby version of `1.9.3-p0`.
+## Updating static pages
 
-## Documentation
+1. To create or update a static page, add the html to the `/source/` directory. You can modify the style in the file `~/sass/base/_layout.scss`
+2. Preview the changes locally by regenerating the site using `rake generate` and then `rake preview`.
+3. Once you are satisfied, add any new files to the repository using `git add -A`, commit the changes using `git commit`. Push the changes to the source branch using `git push origin source`.
+4. To update the site on the web, use `rake generate` and `rake deploy`
 
-Check out [Octopress.org](http://octopress.org/docs) for guides and documentation.
-It should all apply to our current stable version (found in the `master`
-branch). If this is not the case, [please submit a
-fix to our docs repo](https://github.com/octopress/docs).
+## New blog posts.
 
-## Contributing
+1. I use R markdown for most of my posts. To create a new post. Create a new Rmarkdown document in Rstudio, and copy the header format from a previous post.
+2. Create the post, previewing the results locally in Rstudio using the Knit button. Save the file in `./Rmd_sources/`
+3. Once the post is complete, at a terminal navigate to `./Rmd_sources/` and start R.
+4. At the R terminal, run `source("../Rmarkdown.R")` this will process all the .Rmd files in the directory and convert them to plain markdown.
+5. Copy images and figures to the right directory using `system("cp figure/* ../source/images/figure")`.
+6. Copy the processed markdown file to the source directory: `system("cp <post title>.markdown ../source/_posts")`
+7. Update the site locally and preview it using `rake generate` and `rake preview`.
+8. Commit your changes and deploy the site as in steps 3 and 4 above.
 
-[![Build Status](https://travis-ci.org/imathis/octopress.png?branch=master)](https://travis-ci.org/imathis/octopress)
+## Updating the site metadata.
 
-We love to see people contributing to Octopress, whether it's a bug report, feature suggestion or a pull request. At the moment, we try to keep the core slick and lean, focusing on basic blogging needs, so some of your suggestions might not find their way into Octopress. For those ideas, we started a [list of 3rd party plug-ins](https://github.com/imathis/octopress/wiki/3rd-party-plugins), where you can link your own Octopress plug-in repositories. For the future, we're thinking about ways to easier add them into our main releases.
+1. Much of the metadata used to build the site (email addresses, twitter handle) is in the file `_config.yml`.
+2. Currently, the site processes markdown with the Rdiscount engine, but you can change that in the config file.
+3. Rdiscount doesn't play well with MathJax, so it would be nice to use Kramdown in the future. Unfortunately, kramdown has some problems with embedded HTML, so I havent found a good solution.
 
 
 ## License
 (The MIT License)
 
-Copyright © 2009-2013 Brandon Mathis
+Octopress Copyright © 2009-2013 Brandon Mathis
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the ‘Software’), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

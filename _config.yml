@@ -19,7 +19,7 @@ date_format: "ordinal"
 subscribe_rss: /atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
-email: ibreckhe@uw.edu
+email: mailto:ibreckhe@uw.edu
 
 # ----------------------- #
 #    Jekyll & Plugins     #

@@ -71,12 +71,13 @@ img {
 
 
 <p>I’ve been using R as a <a href="https://en.wikipedia.org/wiki/Geographic_information_system">Geographic Information System</a> (GIS) for a long time, and I’ve relied heavily on the excellent <a href="http://cran.r-project.org/web/packages/rgdal/index.html">rgdal</a>, <a href="http://cran.r-project.org/web/packages/maptools/index.html">maptools</a>, and <a href="http://cran.r-project.org/web/packages/raster/index.html">raster</a> packages to process spatial data. One thing has always bugged me about this workflow, however. If I want to check or explore geographic data by clicking around on a map, I nearly always have to export it and open it up in another program like <a href="http://www.esri.com/software/arcgis">ArcGIS</a> or <a href="http://www2.qgis.org/en/site/">QGIS</a>. That’s why I was really excited to learn that the folks at <a href="http://www.rstudio.com/">Rstudio</a> have come up with a cool solution: they’ve written R wrappers for the <a href="http://leafletjs.com/">leaflet</a> javascript library which allows folks to quickly overlay vector data on an interactive web map.</p>
+<p>In this post I’ll describe how to build this map and share it on Rpubs or a self-hosted website. This assumes you have some familiarity with R and manipulating spatial data. For a great compendium of resources on GIS in R, see <a href="http://spatial.ly/r/">here</a></p>
 <!-- more -->
-<p>First, here’s the finished map with a legend. This is what we are shooting for:</p>
+<p>First, here’s the finished map with a legend. This is the end product we are shooting for:</p>
 <pre><code>## quartz_off_screen 
 ##                 2</code></pre>
-<p><div id="htmlwidget-19" style="width:672px;height:480px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-19">{ "x": {
+<p><div id="htmlwidget-6574" style="width:672px;height:480px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-6574">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -218,15 +219,12 @@ null,
 } 
 },"evals": [  ] }</script></p>
 <p>The map shows the number of accurately geo-tagged photos uploaded to the Flickr and iNaturalist websites from 2009 to 2013 in Mt. Rainier National Park, WA. The size and color of the dots is proportional to the number of photos appearing in 500m square bins overlayed on the park, and the park boundary is shown in white. We are using this data to monitor the timing of seasonal wildflower blooms, a project called <a href="http://www.meadowatch.org">MeadoWatch</a></p>
-<p>In this post I’ll describe how to build this map and share it on Rpubs or a self-hosted website. This assumes you have some familiarity with R and maniupulating spatial data. For a great compendium of resources on GIS in R, see <a href="http://spatial.ly/r/">here</a></p>
 <div id="installing-the-leaflet-r-package" class="section level2">
 <h2>Installing the leaflet R package</h2>
-<p>We will build this map up layer by layer, using data that is available <here>, but first we need to set up our R workspace:</p>
-<pre class="r"><code>require(shiny)
-require(rgdal)
+<p>We will build this map up layer by layer, using data that is available <a href="https://github.com/ibreckhe/ibreckhe.github.io/raw/source/source/data/MORA_flickr_data.zip">here</a>, but first we need to set up our R workspace:</p>
+<pre class="r"><code>require(rgdal)
 require(maptools)
-require(RColorBrewer)
-setwd(&quot;&lt;your working directory&gt;&quot;)</code></pre>
+setwd('&lt;your working directory&gt;')</code></pre>
 <p>Next we need to install the leaflet R package. It’s not up on CRAN yet, but you can install it from GitHub:</p>
 <pre class="r"><code>require(devtools)
 devtools::install_github(&quot;rstudio/leaflet&quot;)</code></pre>
@@ -235,8 +233,8 @@ devtools::install_github(&quot;rstudio/leaflet&quot;)</code></pre>
 <h2>Making a basic map</h2>
 <p>Leaflet overlays R data onto tiled web maps of various sources. To use the default tile set (<a href="http://www.openstreetmap.org/">OpenStreetMap</a>), all you need to do is call the <code>leaflet()</code> function and add tiles to it using the <code>addTiles()</code> function. If you are using the newest version of Rstudio, then this map appears alongside your code in the viewer pane.</p>
 <pre class="r"><code>leaflet() %&gt;% addTiles()</code></pre>
-<p><div id="htmlwidget-7437" style="width:672px;height:480px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-7437">{ "x": {
+<p><div id="htmlwidget-1489" style="width:672px;height:480px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-1489">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -266,20 +264,20 @@ devtools::install_github(&quot;rstudio/leaflet&quot;)</code></pre>
 } 
 ] 
 },"evals": [  ] }</script></p>
-<p>The syntax might be a bit unfamiliar because of the pipe (<code>%&gt;%</code>) operator. What it does is input the results of the left-hand expression as the first argument of the right-hand expression. The main advantage of using the pipe is that it allows related operations to be chained together without nesting functions using the confusing <code>f(g(x))</code> syntax.</p>
+<p>The syntax might be a bit unfamiliar because it uses the pipe (<code>%&gt;%</code>) operator. What it does is input the results of the left-hand expression as the first argument of the right-hand expression. The main advantage of using the pipe is that it allows related operations to be chained together without nesting functions using the confusing <code>f(g(x))</code> syntax. More on the pipe operator can be found <a href="http://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html">here</a>.</p>
 </div>
 <div id="adding-custom-tiles" class="section level2">
 <h2>Adding custom tiles</h2>
-<p>If your primary goal is just to explore geographic data, then the default tile set is just fine. If you want to share your map with others, however, it might be nice to have some creative control over how the tiles look. Luckily, it’s pretty straight-forward to change the background map. Many web mapping services use a standard URL scheme to organize access to the individual tile images, so we can change tile sets by specifying a URL template.</p>
-<p>This template has a fixed portion, and then a few regions that change based on the geographic coordinates and the zoom level. For our map, we are going to use some custom tiles I designed with MapBox. To access the tiles, we need to build the URL template that includes the path to the tiles and the access token:</p>
+<p>If your primary goal is to explore geographic data, then the default tile set might do just fine. If you want to share your map with others, however, it’s nice to have some creative control over how the tiles look. Luckily, it’s pretty straight-forward to change the background map. Many web mapping services use a standard URL scheme to organize access to the individual tile images, so we can change tile sets by specifying a URL template.</p>
+<p>This template has a fixed portion, and then a few regions that change based on the geographic coordinates and the zoom level. For our map, we are going to use some custom tiles I designed with <a href="https://www.mapbox.com/">MapBox</a>. To access the tiles, we need to build the URL template that includes the path to the tiles and the access token:</p>
 <pre class="r"><code>MBaccessToken &lt;- &quot;pk.eyJ1IjoiaWJyZWNraGUiLCJhIjoidVNHX1VpRSJ9.9fPQ1A3rdxyCAzPkeYSYEQ&quot;
 MBurlTemplate &lt;- &quot;https://a.tiles.mapbox.com/v4/ibreckhe.map-z05003mi/{z}/{x}/{y}.png?access_token=&quot;
 MBTemplate &lt;- paste(MBurlTemplate,MBaccessToken,sep=&quot;&quot;)</code></pre>
 <p>Now we can add these tiles to our new map. Because we will continue to add layers to this map, we store the output as an object <code>m</code>, and then zoom in to our study area, Mt. Rainier National Park:</p>
 <pre class="r"><code>m &lt;- leaflet() %&gt;% addTiles(MBTemplate) %&gt;% setView(lat=46.854039, lng=-121.760366, zoom = 10)
 m</code></pre>
-<p><div id="htmlwidget-649" style="width:672px;height:480px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-649">{ "x": {
+<p><div id="htmlwidget-9410" style="width:672px;height:480px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-9410">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -316,7 +314,8 @@ m</code></pre>
 </div>
 <div id="preparing-data-for-leaflet" class="section level2">
 <h2>Preparing data for leaflet</h2>
-<p>Next we want to overlay some of our own data on this map. Before we do that, we need to re-project the data into the coordinate system used by leaflet and most web maps: WGS84 Geographic Coordinates. To do this we will read our data into R, assign a coordinate system, and then use the <code>spTransform</code> function from the package <code>rgdal</code> to do the heavy-lifting:</p>
+<p>Next we want to overlay some of our own data on this map. You can download the data I’m using <a href="https://github.com/ibreckhe/ibreckhe.github.io/raw/source/source/data/MORA_flickr_data.zip">here</a>.</p>
+<p>Before we add the data to the map, we need to re-project the data into the coordinate system used by leaflet and most web maps: WGS84 Geographic Coordinates. To do this we will read our data into R, assign a coordinate system, and then use the <code>spTransform</code> function from the package <code>rgdal</code> to do the heavy-lifting:</p>
 <pre class="r"><code>##Loads and formats data.
 photos &lt;- read.csv(&quot;MORA_grid_500m_flickr.csv&quot;)
 photos &lt;- photos[photos$PNTCNT&gt;0,]
@@ -335,8 +334,8 @@ parkbound_latlng &lt;- spTransform(parkbound,CRSobj=CRS(&quot;+proj=longlat +ell
                        color=&quot;white&quot;,fillColor=&quot;white&quot;,
                        opacity=0.7,fillOpacity=0.1)
 m</code></pre>
-<p><div id="htmlwidget-9676" style="width:672px;height:480px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-9676">{ "x": {
+<p><div id="htmlwidget-6081" style="width:672px;height:480px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-6081">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -410,7 +409,7 @@ null
 <div id="visualizing-data-with-size-and-color" class="section level2">
 <h2>Visualizing data with size and color</h2>
 <p>One of the most powerful things about GIS programs is their ability to display geographic data with symbols that vary in size, color, or shape depending on the values of their attributes. Next, we want to overlay the point dataset on the map to identify the locations where the most photos are taken.</p>
-<p>To do this, we are going to scale the size and color of the points according to the number of photos at that location. The first part of the code rescales the variable PNTCNT to a log scale that lies in the interval 0-1.</p>
+<p>To do this, we are going to scale the size and color of the points according to the number of photos at that location. The first part of the code re-scales the variable PNTCNT to a log scale that lies in the interval 0-1.</p>
 <pre class="r"><code>trans_fun &lt;- function(x){
   x_log &lt;- log(x+1)*100
   range_log &lt;- log(photos_latlng@data$PNTCNT+1)*100
@@ -421,7 +420,7 @@ vals &lt;- trans_fun(photos_latlng@data$PNTCNT)</code></pre>
 <pre class="r"><code>ramp &lt;- colorRamp(c(&quot;white&quot;,&quot;blue&quot;))
 cols_rgb &lt;- ramp(vals)
 cols &lt;- rgb(cols_rgb,maxColorValue=256)</code></pre>
-<p>The vector <code>cols</code> now contains hex color values that map to the rescaled values of PNTCNT. We don’t need to be quite as elaborate with our calculations of size:</p>
+<p>The vector <code>cols</code> now contains hex color values that map to the re-scaled values of PNTCNT. We don’t need to be quite as elaborate with our calculations of size:</p>
 <pre class="r"><code>sizes &lt;- log(photos_latlng@data$PNTCNT+1)*2</code></pre>
 <p>Now we can add the points to our map:</p>
 <pre class="r"><code>m  &lt;- m %&gt;% addCircleMarkers(lng=coordinates(photos_latlng)[,1],
@@ -430,8 +429,8 @@ cols &lt;- rgb(cols_rgb,maxColorValue=256)</code></pre>
                  fillColor=cols,fillOpacity=0.9,
                  weight=0.5)
 m</code></pre>
-<p><div id="htmlwidget-9611" style="width:672px;height:480px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-9611">{ "x": {
+<p><div id="htmlwidget-6851" style="width:672px;height:480px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-6851">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -555,8 +554,8 @@ leg_html &lt;-   &quot;&lt;div class='my-legend'&gt;
 
 m &lt;- m %&gt;% addTiles(MBTemplate,attribution=leg_html)
 m</code></pre>
-<p><div id="htmlwidget-8036" style="width:672px;height:480px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-8036">{ "x": {
+<p><div id="htmlwidget-7423" style="width:672px;height:480px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-7423">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -692,8 +691,8 @@ colnames(popups) &lt;- c(&quot;latitude&quot;,&quot;longitude&quot;,&quot;Label&
 ##Adds Popup points of interest.
 m &lt;- m %&gt;% addMarkers(lat=popups[,1],lng=popups[,2],popup=popups$Label,options=markerOptions(clickable=TRUE))
 m</code></pre>
-<p><div id="htmlwidget-2705" style="width:672px;height:480px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-2705">{ "x": {
+<p><div id="htmlwidget-3124" style="width:672px;height:480px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-3124">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -839,9 +838,9 @@ null,
 <h2>Publishing the map</h2>
 <p>Now that we have a serviceable map, we can share it with others. There are (at least) three ways to do that:</p>
 <ol style="list-style-type: decimal">
-<li><p><em>Export the map widget as a standalone HTML file.</em> This file can be shared with anyone, and as long as they have a modern web browser and an internet connection, they should be able to see your map. You can do this in Rstudio by select <em>“Export to HTML…”</em> in the viewer pane.</p></li>
-<li><p><em>Push the widget to Rpubs.</em> If you are working in RStudio, then you can also upload the map to the Rpubs figure-sharing service by clicking the button in the top-right corner of the viewer pane or selecting <em>“Export&gt;Publish to Rpubs…”</em></p></li>
-<li><p><em>Host the widget on a website using Github Pages.</em> The html widget can be dropped into any webpage, and will often display just fine. I found that hosting these maps on my own site was a bit of a challenge, and I needed to make sure that the page headers included links to a few scripts provided by Rstudio here.</p></li>
+<li><p><strong>Export the map widget as a standalone HTML file.</strong> This file can be shared with anyone, and as long as they have a modern web browser and an internet connection, they should be able to see your map. You can do this in Rstudio by select <em>“Export to HTML…”</em> in the viewer pane.</p></li>
+<li><p><strong>Push the widget to Rpubs.</strong> If you are working in RStudio, then you can also upload the map to the Rpubs figure-sharing service by clicking the button in the top-right corner of the viewer pane or selecting <em>“Export&gt;Publish to Rpubs…”</em></p></li>
+<li><p><strong>Host the widget on a website using Github Pages.</strong> The html widget can be dropped into any webpage, and will often display just fine. I found that hosting these maps on my own site was a bit of a challenge, and I needed to make sure that the page headers included links to a few scripts provided by Rstudio here.</p></li>
 </ol>
 </div>
 

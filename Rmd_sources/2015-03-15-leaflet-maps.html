@@ -76,8 +76,8 @@ img {
 <p>First, here’s the finished map with a legend. This is the end product we are shooting for:</p>
 <pre><code>## quartz_off_screen 
 ##                 2</code></pre>
-<p><div id="htmlwidget-6574" style="width:672px;height:480px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-6574">{ "x": {
+<p><div id="htmlwidget-1167" style="width:672px;height:480px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-1167">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -225,7 +225,7 @@ null,
 <pre class="r"><code>require(rgdal)
 require(maptools)
 setwd('&lt;your working directory&gt;')</code></pre>
-<p>Next we need to install the leaflet R package. It’s not up on CRAN yet, but you can install it from GitHub:</p>
+<p>Next we need to install the leaflet R package. It’s not up on CRAN yet, but you can install it from <a href="https://github.com">GitHub</a></p>
 <pre class="r"><code>require(devtools)
 devtools::install_github(&quot;rstudio/leaflet&quot;)</code></pre>
 </div>
@@ -233,8 +233,8 @@ devtools::install_github(&quot;rstudio/leaflet&quot;)</code></pre>
 <h2>Making a basic map</h2>
 <p>Leaflet overlays R data onto tiled web maps of various sources. To use the default tile set (<a href="http://www.openstreetmap.org/">OpenStreetMap</a>), all you need to do is call the <code>leaflet()</code> function and add tiles to it using the <code>addTiles()</code> function. If you are using the newest version of Rstudio, then this map appears alongside your code in the viewer pane.</p>
 <pre class="r"><code>leaflet() %&gt;% addTiles()</code></pre>
-<p><div id="htmlwidget-1489" style="width:672px;height:480px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-1489">{ "x": {
+<p><div id="htmlwidget-1143" style="width:672px;height:480px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-1143">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -276,8 +276,8 @@ MBTemplate &lt;- paste(MBurlTemplate,MBaccessToken,sep=&quot;&quot;)</code></pre
 <p>Now we can add these tiles to our new map. Because we will continue to add layers to this map, we store the output as an object <code>m</code>, and then zoom in to our study area, Mt. Rainier National Park:</p>
 <pre class="r"><code>m &lt;- leaflet() %&gt;% addTiles(MBTemplate) %&gt;% setView(lat=46.854039, lng=-121.760366, zoom = 10)
 m</code></pre>
-<p><div id="htmlwidget-9410" style="width:672px;height:480px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-9410">{ "x": {
+<p><div id="htmlwidget-9895" style="width:672px;height:480px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-9895">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -334,8 +334,8 @@ parkbound_latlng &lt;- spTransform(parkbound,CRSobj=CRS(&quot;+proj=longlat +ell
                        color=&quot;white&quot;,fillColor=&quot;white&quot;,
                        opacity=0.7,fillOpacity=0.1)
 m</code></pre>
-<p><div id="htmlwidget-6081" style="width:672px;height:480px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-6081">{ "x": {
+<p><div id="htmlwidget-8175" style="width:672px;height:480px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-8175">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -429,8 +429,8 @@ cols &lt;- rgb(cols_rgb,maxColorValue=256)</code></pre>
                  fillColor=cols,fillOpacity=0.9,
                  weight=0.5)
 m</code></pre>
-<p><div id="htmlwidget-6851" style="width:672px;height:480px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-6851">{ "x": {
+<p><div id="htmlwidget-3680" style="width:672px;height:480px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-3680">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -554,8 +554,8 @@ leg_html &lt;-   &quot;&lt;div class='my-legend'&gt;
 
 m &lt;- m %&gt;% addTiles(MBTemplate,attribution=leg_html)
 m</code></pre>
-<p><div id="htmlwidget-7423" style="width:672px;height:480px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-7423">{ "x": {
+<p><div id="htmlwidget-7491" style="width:672px;height:480px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-7491">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -691,8 +691,8 @@ colnames(popups) &lt;- c(&quot;latitude&quot;,&quot;longitude&quot;,&quot;Label&
 ##Adds Popup points of interest.
 m &lt;- m %&gt;% addMarkers(lat=popups[,1],lng=popups[,2],popup=popups$Label,options=markerOptions(clickable=TRUE))
 m</code></pre>
-<p><div id="htmlwidget-3124" style="width:672px;height:480px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-3124">{ "x": {
+<p><div id="htmlwidget-3739" style="width:672px;height:480px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-3739">{ "x": {
  "calls": [
  {
  "method": "tileLayer",

@@ -73,7 +73,7 @@ leg_breaks <- c(1,10,100)
 leg_size <- log(leg_breaks+1)
 leg_col <- rgb(ramp(trans_fun(leg_breaks)),maxColorValue=256)
 
-png(filename="./maps/web_map_legend.png",width=50,height=70,unit="px",bg=NULL)
+png(filename="./maps/web_map_legend.png",width=50,height=70,unit="px",bg=rgb(0,0,0,0))
 par(mar=c(1,1,0,0))
 plot(leg_breaks,type="n",axes=FALSE,xlab="",ylab="")
 legend("center",pch=21,col="black",pt.bg=leg_col,pt.cex=leg_size,
@@ -229,7 +229,8 @@ leg_breaks <- c(1,10,100)
 leg_size <- log(leg_breaks+1)
 leg_col <- rgb(ramp(trans_fun(leg_breaks)),maxColorValue=256)
 
-png(filename="/Users/ian/code/ibreckhe.github.io/source/images/web_map_legend.png",width=50,height=70,unit="px",bg=NULL)
+png(filename="/Users/ian/code/ibreckhe.github.io/source/images/web_map_legend.png",
+    width=50,height=70,unit="px",bg=rgb(0,0,0,0))
 par(mar=c(1,1,0,0))
 plot(leg_breaks,type="n",axes=FALSE,xlab="",ylab="")
 legend("center",pch=21,col="black",pt.bg=leg_col,pt.cex=leg_size,

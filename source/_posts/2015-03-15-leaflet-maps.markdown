@@ -20,8 +20,8 @@ First, here's the finished map with a legend. This is the end product we are sho
     ## quartz_off_screen 
     ##                 2
 
-<!--html_preserve--><div id="htmlwidget-985" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-985">{ "x": {
+<!--html_preserve--><div id="htmlwidget-7134" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-7134">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -186,8 +186,8 @@ Leaflet overlays R data onto tiled web maps of various sources. To use the defau
 
     leaflet() %>% addTiles()
 
-<!--html_preserve--><div id="htmlwidget-2660" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-2660">{ "x": {
+<!--html_preserve--><div id="htmlwidget-3317" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-3317">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -236,8 +236,8 @@ Now we can add these tiles to our new map. Because we will continue to add layer
     m <- leaflet() %>% addTiles(MBTemplate) %>% setView(lat=46.854039, lng=-121.760366, zoom = 10)
     m
 
-<!--html_preserve--><div id="htmlwidget-3276" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-3276">{ "x": {
+<!--html_preserve--><div id="htmlwidget-6861" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-6861">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -300,8 +300,8 @@ Now the layers are in a geographic coordinate system suitable for overlay onto a
                            opacity=0.7,fillOpacity=0.1)
     m
 
-<!--html_preserve--><div id="htmlwidget-7585" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-7585">{ "x": {
+<!--html_preserve--><div id="htmlwidget-304" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-304">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -405,8 +405,8 @@ Now we can add the points to our map:
                      weight=0.5)
     m
 
-<!--html_preserve--><div id="htmlwidget-6077" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-6077">{ "x": {
+<!--html_preserve--><div id="htmlwidget-9571" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-9571">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -512,7 +512,8 @@ In the bottom-right of each map is small transparent panel called the "Attributi
     leg_size <- log(leg_breaks+1)
     leg_col <- rgb(ramp(trans_fun(leg_breaks)),maxColorValue=256)
      
-    png(filename="/Users/ian/code/ibreckhe.github.io/source/images/web_map_legend.png",width=50,height=70,unit="px",bg=NULL)
+    png(filename="/Users/ian/code/ibreckhe.github.io/source/images/web_map_legend.png",
+        width=50,height=70,unit="px",bg=rgb(0,0,0,0))
     par(mar=c(1,1,0,0))
     plot(leg_breaks,type="n",axes=FALSE,xlab="",ylab="")
     legend("center",pch=21,col="black",pt.bg=leg_col,pt.cex=leg_size,
@@ -538,8 +539,8 @@ Finally we can add the HTML legend including the image we just created:
     m <- m %>% addTiles(MBTemplate,attribution=leg_html)
     m
 
-<!--html_preserve--><div id="htmlwidget-1265" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-1265">{ "x": {
+<!--html_preserve--><div id="htmlwidget-3105" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-3105">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -678,8 +679,8 @@ Using the leaflet javascript library with tools like D3 allow for virtually unli
     m <- m %>% addMarkers(lat=popups[,1],lng=popups[,2],popup=popups$Label,options=markerOptions(clickable=TRUE))
     m
 
-<!--html_preserve--><div id="htmlwidget-1897" style="width:504px;height:504px;" class="leaflet"></div>
-<script type="application/json" data-for="htmlwidget-1897">{ "x": {
+<!--html_preserve--><div id="htmlwidget-333" style="width:504px;height:504px;" class="leaflet"></div>
+<script type="application/json" data-for="htmlwidget-333">{ "x": {
  "calls": [
  {
  "method": "tileLayer",

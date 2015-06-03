@@ -66,17 +66,18 @@
    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 <!-- Leaflet maps -->
-<script src="https://rstudio.github.io/leaflet/leaflet_files/jquery-1.11.1/jquery.min.js"></script>
+<script src="https://rstudio.github.io/leaflet/libs/jquery/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="https://rstudio.github.io/leaflet/leaflet_files/bootstrap-3.3.1/css/cosmo.min.css" rel="stylesheet" />
-<script src="https://rstudio.github.io/leaflet/leaflet_files/bootstrap-3.3.1/js/bootstrap.min.js"></script>
-<script src="https://rstudio.github.io/leaflet/leaflet_files/bootstrap-3.3.1/shim/html5shiv.min.js"></script>
-<script src="https://rstudio.github.io/leaflet/leaflet_files/bootstrap-3.3.1/shim/respond.min.js"></script>
-<script src="https://rstudio.github.io/leaflet/leaflet_files/htmlwidgets-0.3.2/htmlwidgets.js"></script>
-<link href="https://rstudio.github.io/leaflet/leaflet_files/leaflet-0.7.3/leaflet.css" rel="stylesheet" />
-<script src="https://rstudio.github.io/leaflet/leaflet_files/leaflet-0.7.3/leaflet.js"></script>
-<link href="https://rstudio.github.io/leaflet/leaflet_files/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<script src="https://rstudio.github.io/leaflet/leaflet_files/leaflet-binding-0.0.8/leaflet.js"></script>
+<link href="https://rstudio.github.io/leaflet/libs/bootstrap/css/flatly.min.css" rel="stylesheet" />
+<script src="https://rstudio.github.io/leaflet/libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://rstudio.github.io/leaflet/libs/bootstrap/shim/html5shiv.min.js"></script>
+<script src="https://rstudio.github.io/leaflet/libs/bootstrap/shim/respond.min.js"></script>
+<script src="https://rstudio.github.io/leaflet/libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="https://rstudio.github.io/leaflet/libs/leaflet/leaflet.css" rel="stylesheet" />
+<script src="https://rstudio.github.io/leaflet/libs/leaflet/leaflet.js"></script>
+<link href="https://rstudio.github.io/leaflet/libs/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="https://rstudio.github.io/leaflet/libs/leaflet-binding/leaflet.js"></script>
+
 </head>
 
   <body>
@@ -131,10 +132,10 @@ in
 <!--html_preserve-->
 
 
-<div id="htmlwidget-985" style="width:504px;height:504px;" class="leaflet"></div>
+<div id="htmlwidget-7134" style="width:504px;height:504px;" class="leaflet"></div>
 
 
-<script type="application/json" data-for="htmlwidget-985">{ "x": {
+<script type="application/json" data-for="htmlwidget-7134">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -307,10 +308,10 @@ devtools::install_github("rstudio/leaflet")
 <!--html_preserve-->
 
 
-<div id="htmlwidget-2660" style="width:504px;height:504px;" class="leaflet"></div>
+<div id="htmlwidget-3317" style="width:504px;height:504px;" class="leaflet"></div>
 
 
-<script type="application/json" data-for="htmlwidget-2660">{ "x": {
+<script type="application/json" data-for="htmlwidget-3317">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -367,10 +368,10 @@ m
 <!--html_preserve-->
 
 
-<div id="htmlwidget-3276" style="width:504px;height:504px;" class="leaflet"></div>
+<div id="htmlwidget-6861" style="width:504px;height:504px;" class="leaflet"></div>
 
 
-<script type="application/json" data-for="htmlwidget-3276">{ "x": {
+<script type="application/json" data-for="htmlwidget-6861">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -440,10 +441,10 @@ m
 <!--html_preserve-->
 
 
-<div id="htmlwidget-7585" style="width:504px;height:504px;" class="leaflet"></div>
+<div id="htmlwidget-304" style="width:504px;height:504px;" class="leaflet"></div>
 
 
-<script type="application/json" data-for="htmlwidget-7585">{ "x": {
+<script type="application/json" data-for="htmlwidget-304">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -557,10 +558,10 @@ m
 <!--html_preserve-->
 
 
-<div id="htmlwidget-6077" style="width:504px;height:504px;" class="leaflet"></div>
+<div id="htmlwidget-9571" style="width:504px;height:504px;" class="leaflet"></div>
 
 
-<script type="application/json" data-for="htmlwidget-6077">{ "x": {
+<script type="application/json" data-for="htmlwidget-9571">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -669,7 +670,8 @@ In the bottom-right of each map is small transparent panel called the &#8220;Att
 leg_size &lt;- log(leg_breaks+1)
 leg_col &lt;- rgb(ramp(trans_fun(leg_breaks)),maxColorValue=256)
 
-png(filename="/Users/ian/code/ibreckhe.github.io/source/images/web_map_legend.png",width=50,height=70,unit="px",bg=NULL)
+png(filename="/Users/ian/code/ibreckhe.github.io/source/images/web_map_legend.png",
+    width=50,height=70,unit="px",bg=rgb(0,0,0,0))
 par(mar=c(1,1,0,0))
 plot(leg_breaks,type="n",axes=FALSE,xlab="",ylab="")
 legend("center",pch=21,col="black",pt.bg=leg_col,pt.cex=leg_size,
@@ -699,10 +701,10 @@ m
 <!--html_preserve-->
 
 
-<div id="htmlwidget-1265" style="width:504px;height:504px;" class="leaflet"></div>
+<div id="htmlwidget-3105" style="width:504px;height:504px;" class="leaflet"></div>
 
 
-<script type="application/json" data-for="htmlwidget-1265">{ "x": {
+<script type="application/json" data-for="htmlwidget-3105">{ "x": {
  "calls": [
  {
  "method": "tileLayer",
@@ -848,10 +850,10 @@ m
 <!--html_preserve-->
 
 
-<div id="htmlwidget-1897" style="width:504px;height:504px;" class="leaflet"></div>
+<div id="htmlwidget-333" style="width:504px;height:504px;" class="leaflet"></div>
 
 
-<script type="application/json" data-for="htmlwidget-1897">{ "x": {
+<script type="application/json" data-for="htmlwidget-333">{ "x": {
  "calls": [
  {
  "method": "tileLayer",

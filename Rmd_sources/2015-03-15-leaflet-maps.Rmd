@@ -282,4 +282,4 @@ Now that we have a serviceable map, we can share it with others. There are (at l
 
 2. **Push the widget to Rpubs.** If you are working in RStudio, then you can also upload the map to the Rpubs figure-sharing service by clicking the button in the top-right corner of the viewer pane or selecting *"Export>Publish to Rpubs..."*
 
-2. **Host the widget on a website using Github Pages.** The html widget can be dropped into any webpage, and will often display just fine. I found that hosting these maps on my own site was a bit of a challenge, and I needed to make sure that the page headers included links to a few scripts provided by Rstudio here.
+2. **Host the widget on a website using Github Pages.** The html widget can be dropped into any webpage, and will often display just fine. I found that hosting these maps on my own site was a bit of a challenge, and I needed to make sure that the page headers included links to a few scripts provided by Rstudio.

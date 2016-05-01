@@ -70,7 +70,7 @@ Now we can use some made-up parameters for each curve and plot them.
     lines(xs, y1d, lty="solid")
     lines(xs, y2d, lty="dotted")
 
-![plot of chunk unnamed-chunk-4](/images/figure/unnamed-chunk-4-1.png) 
+![plot of chunk unnamed-chunk-4](/images/figure/unnamed-chunk-4-1.png)
  
 The last step is to compute the area where the two curves intersect.
  
@@ -88,6 +88,6 @@ Finally we can plot everything to make sure it makes sense.
     lines(xs, y2d, lty="dotted")
     title(main=paste("Overlap: ",round(over_dens[[1]],2)))
 
-![plot of chunk unnamed-chunk-6](/images/figure/unnamed-chunk-6-1.png) 
+![plot of chunk unnamed-chunk-6](/images/figure/unnamed-chunk-6-1.png)
  
 There are some analytical ways to do this for polynomial and Gaussian functions, but this approach is agnostic about what the functional form of the phenology curves are, so long as they have a finite integral.

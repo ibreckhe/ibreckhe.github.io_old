@@ -30,21 +30,23 @@
 <div id='legend' style='display:none;'>
   <h2>Predicted Last Snow Date</h2>
   <nav class='legend clearfix'>
-	<img src="https://ibreckhe.github.io/images/legend_4_28_16.png" width=150 alt="Map Legend">
-	<p>Forecast generated April 28th, 2016</p>
+	<img src="https://ibreckhe.github.io/images/legend_5_15_16.png" width=200 alt="Map Legend">
+	<p>Forecast generated May 15th, 2016</p>
     <small>&#169; 2016 Ian Breckheimer <a href="https://ibreckhe.github.io/blog/2016/05/01/snow-forecasts/">About this Forecast</a></small>
 </div>
-<div id='map' class='dark'></div>
+<div id='map' class='light'></div>
 
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoiaWJyZWNraGUiLCJhIjoidVNHX1VpRSJ9.9fPQ1A3rdxyCAzPkeYSYEQ';
   var map = L.mapbox.map('map')
     .setView([46.855441, -121.567765], 11);
   map.legendControl.addLegend(document.getElementById('legend').innerHTML);
-  
-  
-  // Use styleLayer to add a Mapbox style created in Mapbox Studio
-L.mapbox.styleLayer('mapbox://styles/ibreckhe/cinmfv0wb002badncinrp6233').addTo(map);
+
+L.control.layers({
+    'Most Recent Forecast': L.mapbox.styleLayer('mapbox://styles/ibreckhe/cio95cb3w001ralne5xirj550').addTo(map),
+    'April 28th Forecast': L.mapbox.styleLayer('mapbox://styles/ibreckhe/cinmfv0wb002badncinrp6233')
+}).addTo(map);  
+
 </script>
 </script>
 </body>

@@ -25,7 +25,7 @@ For the first time, MORAclim gives us a detailed picture of how the Mountain’s
  
 ** Maps of selected products can be explored [here](http://ibreckhe.github.io/MORAclim_maps).**
  
-<img src='https://ibreckhe.github.io/images/MORAclim_logo.png' alt='MORAclim' width=650>
+<img src='https://ibreckhe.github.io/images/MORAclim_logo.png' alt='MORAclim' width=700>
  
 <p align="right"><em>Because every project needs a logo</em></p>
  
@@ -57,7 +57,7 @@ In the first stage of the analysis, we estimated the mean linear relationship be
  
 2. The linear regression slope, which indicates how sensitive microclimates at a given site are to changes in regional conditions.
  
-<img src='https://ibreckhe.github.io/images/MORAclim_buff_sens.png' alt='MORAclim Sensors' width=800>
+<img src='https://ibreckhe.github.io/images/MORAclim_buff_sens.png' alt='MORAclim Sensors' width=700>
  
 <p align="right"><em>Local-regional regressions for two representative sites.</em></p>
  
@@ -69,7 +69,7 @@ In the second stage of the analysis, we used a geostatistical approach called [B
  
 No model gives perfect predictions, and any complex analysis involves many subjective decisions that can introduce bias into prediction and inference. To assess how well MORAclim performs, we compared our model’s predictions to measurements from 20 randomly-selected climate stations that we deliberately excluded from the analysis. We found that the MORAclim products perform well, with substantially reduced error and minimal bias compared with the data products that are currently available. Seasonal mean estimates of minimum and average temperatures have average absolute errors of less than 1 degree C for all seasons, while daily maximums had absolute errors between 1 and 1.5 degrees C. These statistics compare favorably to other recent efforts to model microclimates in mountainous locations, and are a substantial improvement over national state-of-the-art products PRISM and TopoWX.
  
-<img src='https://ibreckhe.github.io/images/MORAclim_validation.png' alt='MORAclim Sensors' width=800>
+<img src='https://ibreckhe.github.io/images/MORAclim_validation.png' alt='MORAclim Validation' width=700>
  
 <p align="right"><em>Observed vs. predicted values for seasonal and annual temperature means.</em></p>
  

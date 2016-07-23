@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Maps | TinyPlant]]></title>
   <link href="http://ibreckhe.github.io/blog/categories/maps/atom.xml" rel="self"/>
   <link href="http://ibreckhe.github.io/"/>
-  <updated>2016-07-22T18:32:36-07:00</updated>
+  <updated>2016-07-22T18:40:50-07:00</updated>
   <id>http://ibreckhe.github.io/</id>
   <author>
     <name><![CDATA[Ian Breckheimer]]></name>
@@ -29,7 +29,7 @@
 
 <p><strong> Maps of selected products can be explored <a href="http://ibreckhe.github.io/MORAclim_maps">here</a>.</strong></p>
 
-<p><img src='https://ibreckhe.github.io/images/MORAclim_logo.png' alt='MORAclim' width=650></p>
+<p><img src='https://ibreckhe.github.io/images/MORAclim_logo.png' alt='MORAclim' width=700></p>
 
 <p align="right"><em>Because every project needs a logo</em></p>
 
@@ -65,7 +65,7 @@
 </ol>
 
 
-<p><img src='https://ibreckhe.github.io/images/MORAclim_buff_sens.png' alt='MORAclim Sensors' width=800></p>
+<p><img src='https://ibreckhe.github.io/images/MORAclim_buff_sens.png' alt='MORAclim Sensors' width=700></p>
 
 <p align="right"><em>Local-regional regressions for two representative sites.</em></p>
 
@@ -78,7 +78,7 @@
 
 <p>No model gives perfect predictions, and any complex analysis involves many subjective decisions that can introduce bias into prediction and inference. To assess how well MORAclim performs, we compared our model’s predictions to measurements from 20 randomly-selected climate stations that we deliberately excluded from the analysis. We found that the MORAclim products perform well, with substantially reduced error and minimal bias compared with the data products that are currently available. Seasonal mean estimates of minimum and average temperatures have average absolute errors of less than 1 degree C for all seasons, while daily maximums had absolute errors between 1 and 1.5 degrees C. These statistics compare favorably to other recent efforts to model microclimates in mountainous locations, and are a substantial improvement over national state-of-the-art products PRISM and TopoWX.</p>
 
-<p><img src='https://ibreckhe.github.io/images/MORAclim_validation.png' alt='MORAclim Sensors' width=800></p>
+<p><img src='https://ibreckhe.github.io/images/MORAclim_validation.png' alt='MORAclim Validation' width=700></p>
 
 <p align="right"><em>Observed vs. predicted values for seasonal and annual temperature means.</em></p>
 

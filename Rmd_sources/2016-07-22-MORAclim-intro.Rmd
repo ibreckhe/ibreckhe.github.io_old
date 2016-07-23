@@ -103,6 +103,6 @@ This dataset consists of gridded estimates of the average dates last frost from 
 
 ## The road ahead
 
-MORAclim is a draft product released to the public and the community for testing and evaluation. It should **not** be used for mission-critical scientific or other work at this point.  After an initial round of review (and manuscript submission). These products will be finalized, along with the daily time-series that were used to build the summary products. These data are too large to host here, but will eventually find their way to the Center for Integrated Data Analytics at USGS.
+MORAclim is a draft product released to the public and the community for testing and evaluation. It should **not** be used for mission-critical scientific or other work at this point.  After an initial round of review (and manuscript submission), these products will be finalized, along with the daily time-series that were used to build the summary products. These data are too large to host here, but will eventually find their way to the Center for Integrated Data Analytics at USGS.
 
 If you identify any problems, or would like to use these products in an ongoing project, drop me a line at [ibreckhe@uw.edu](mailto:ibreckhe@uw.edu).

@@ -13,7 +13,7 @@
   <meta name="author" content="Ian Breckheimer">
 
   
-  <meta name="description" content="All Posts Phenology and the Intersection of Two Curves My lab has been working on a project forecasting how the timing of flowering will vary over &hellip;">
+  <meta name="description" content="All Posts Introducing MORAclim: State-of-the-art Climate Maps for Mt. Rainier National Park With support from the Northwest Climate Science Center, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -32,23 +32,54 @@
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
 
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- Leaflet maps -->
+<script src="https://rstudio.github.io/leaflet/libs/jquery/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://rstudio.github.io/leaflet/libs/bootstrap/css/flatly.min.css" rel="stylesheet" />
+<script src="https://rstudio.github.io/leaflet/libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://rstudio.github.io/leaflet/libs/bootstrap/shim/html5shiv.min.js"></script>
+<script src="https://rstudio.github.io/leaflet/libs/bootstrap/shim/respond.min.js"></script>
+<script src="https://rstudio.github.io/leaflet/libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="https://rstudio.github.io/leaflet/libs/leaflet/leaflet.css" rel="stylesheet" />
+<script src="https://rstudio.github.io/leaflet/libs/leaflet/leaflet.js"></script>
+<link href="https://rstudio.github.io/leaflet/libs/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="https://rstudio.github.io/leaflet/libs/leaflet-binding/leaflet.js"></script>
+
 </head>
 
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
   <body>
     <a href="/" class="home-icon">
       <img src="/images/home.png"/>
@@ -70,10 +101,214 @@ MathJax.Hub.Config({
       <div class="row">
         <div class="col-md-offset-3 col-md-6">
           <article>
+  <h2><a href="/blog/2016/07/22/MORAclim-intro/">Introducing MORAclim: State-of-the-art Climate Maps for Mt. Rainier National Park</a></h2>
+  
+  <p>
+    <p>With support from the <a href="https://www.nwclimatescience.org/">Northwest Climate Science Center</a>, <a href="https://cida.usgs.gov">USGS Center for Integrated Data and Analytics</a>, and the <a href="https://www.nps.gov">National Park Service</a>, it’s my pleasure to introduce new gridded climate maps for Mt. Rainier National Park. These products are based on six years of monitoring air temperature and snow duration at hundreds of sites across Mt. Rainier using data from climate stations and low-cost distributed temperature sensors.</p>
+
+
+
+
+  </p>
+  <span class="meta">
+    written 
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2016-07-22T09:00:00-07:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2016</time>
+    
+
+in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/climate/'>Climate</a>, <a class='category' href='/blog/categories/gis/'>GIS</a>, <a class='category' href='/blog/categories/maps/'>maps</a>
+  
+</span>
+
+
+  </span>
+
+  
+    <a class="full-article-link pull-right" rel="full-article" href="/blog/2016/07/22/MORAclim-intro/">Read on &rarr;</a>
+  
+</article>
+
+        </div>
+      </div>
+      
+      
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+          <article>
+  <h2><a href="/blog/2016/05/01/snow-forecasts/">Snow Melt Forecasts for Mt. Rainier National Park</a></h2>
+  
+  <p>
+    <p>I&#8217;m spending some time at <a href="https://www.nps.gov/mora/">Mt. Rainier National Park</a> this spring as a &#8220;Scientist in Residence&#8221;, a position made possible by support from the <a href="https://www.nwclimatescience.org/">Northwest Climate Science Center</a>. One of the projects that I&#8217;m working on is generating up-to-date forecasts of when Mt. Rainier&#8217;s (massive) snowpack will finally melt this summer. The timing of snow melt is important for wildflower phenology (one of my research interests), but it&#8217;s also important because it determines when some of the park&#8217;s management activities can happen (i.e. trail maintenance, road openings), and potentially for visitors. This post serves as a brief FAQ to the forecasts, which are available live today.</p>
+
+
+
+
+<p>The link to the most up-to-date forecast map is <a href="https://ibreckhe.github.io/snow_forecasts.html">here</a>.</p>
+
+
+
+
+  </p>
+  <span class="meta">
+    written 
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2016-05-01T02:00:00-07:00" pubdate data-updated="true">May 1<span>st</span>, 2016</time>
+    
+
+in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/gis/'>GIS</a>, <a class='category' href='/blog/categories/mapbox/'>MapBox</a>, <a class='category' href='/blog/categories/r/'>R</a>, <a class='category' href='/blog/categories/maps/'>maps</a>
+  
+</span>
+
+
+  </span>
+
+  
+    <a class="full-article-link pull-right" rel="full-article" href="/blog/2016/05/01/snow-forecasts/">Read on &rarr;</a>
+  
+</article>
+
+        </div>
+      </div>
+      
+      
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+          <article>
+  <h2><a href="/blog/2015/03/17/100-years-of-change-at-mt-rainier/">100 Years of Change at Mt. Rainier</a></h2>
+  
+  <p>
+    <p>I&#8217;ve always been fascinated by old photographs, so last year when I found an old panoramic photo of Mt. Rainier in Pat Pringle&#8217;s excellent <a href="http://www.dnr.wa.gov/ResearchScience/Topics/GeologyPublicationsLibrary/Pages/pub_ic107.aspx">Roadside Geology of Mount Rainier National Park and Vicinity</a> I got really excited. The photo was taken in 1904 by W.P. Romans, and shows the northwest slopes of the mountain in the vicinity of Spray Park. The original is maintained by the Washington State Historical Society</p>
+
+
+
+
+  </p>
+  <span class="meta">
+    written 
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-03-17T15:38:35-07:00" pubdate data-updated="true">Mar 17<span>th</span>, 2015</time>
+    
+
+in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/rainier/'>Rainier</a>, <a class='category' href='/blog/categories/re-photo/'>re-photo</a>, <a class='category' href='/blog/categories/treeline/'>treeline</a>
+  
+</span>
+
+
+  </span>
+
+  
+    <a class="full-article-link pull-right" rel="full-article" href="/blog/2015/03/17/100-years-of-change-at-mt-rainier/">Read on &rarr;</a>
+  
+</article>
+
+        </div>
+      </div>
+      
+      
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+          <article>
+  <h2><a href="/blog/2015/03/16/leaflet-maps/">Easy Web Maps With R and Leaflet</a></h2>
+  
+  <p>
+    <p>I&#8217;ve been using R as a <a href="https://en.wikipedia.org/wiki/Geographic_information_system">Geographic Information System</a> (GIS) for a long time, and I&#8217;ve relied heavily on the excellent <a href="http://cran.r-project.org/web/packages/rgdal/index.html">rgdal</a>, <a href="http://cran.r-project.org/web/packages/maptools/index.html">maptools</a>, and <a href="http://cran.r-project.org/web/packages/raster/index.html">raster</a> packages to process spatial data.  One thing has always bugged me about this workflow, however. If I want to check or explore geographic data by clicking around on a map, I nearly always have to export it and open it up in another program like <a href="http://www.esri.com/software/arcgis">ArcGIS</a> or <a href="http://www2.qgis.org/en/site/">QGIS</a>. That&#8217;s why I was really excited to learn that the folks at <a href="http://www.rstudio.com/">Rstudio</a> have come up with a cool solution: they&#8217;ve written R wrappers for the <a href="http://leafletjs.com/">leaflet</a> javascript library which allows folks to quickly overlay vector data on an interactive web map.</p>
+
+
+
+
+<p>In this post I&#8217;ll describe how to build this map and share it on Rpubs or a self-hosted website. This assumes you have some familiarity with R and manipulating spatial data. For a great compendium of resources on GIS in R, see <a href="http://spatial.ly/r/">here</a></p>
+
+
+
+
+  </p>
+  <span class="meta">
+    written 
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-03-16T02:00:00-07:00" pubdate data-updated="true">Mar 16<span>th</span>, 2015</time>
+    
+
+in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/gis/'>GIS</a>, <a class='category' href='/blog/categories/r/'>R</a>, <a class='category' href='/blog/categories/leaflet/'>leaflet</a>, <a class='category' href='/blog/categories/maps/'>maps</a>
+  
+</span>
+
+
+  </span>
+
+  
+    <a class="full-article-link pull-right" rel="full-article" href="/blog/2015/03/16/leaflet-maps/">Read on &rarr;</a>
+  
+</article>
+
+        </div>
+      </div>
+      
+      
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+          <article>
   <h2><a href="/blog/2014/07/19/curve-overlap/">Phenology and the Intersection of Two Curves</a></h2>
   
   <p>
-    <p>My lab has been working on a project forecasting how the timing of flowering will vary over space and through time with climate change. To do this well, we need robust ways to quantify shifts in phenological timing. The approach we have taken so-far is to fit relatively simple functions to the observed data, but how do we quantify the amount of shift? Here’s where numerical integration comes in. Here’s an example with some simulated data. I’ve borrowed some of this code from <a href="http://stats.stackexchange.com/questions/12209/percentage-of-overlapping-regions-of-two-normal-distributions">here</a>.</p>
+    <p>My lab has been working on a project forecasting how the timing of flowering will vary over space and through time with climate change. To do this well, we need robust ways to quantify shifts in phenological timing. The approach we have taken so-far is to fit relatively simple functions to the observed data, but how do we quantify the amount of shift? Here&#8217;s where numerical integration comes in. Here&#8217;s an example with some simulated data. I&#8217;ve borrowed some of this code from <a href="http://stats.stackexchange.com/questions/12209/percentage-of-overlapping-regions-of-two-normal-distributions">here</a>.</p>
+
+
 
 
   </p>
@@ -119,7 +354,9 @@ in
   <h2><a href="/blog/2014/07/18/report-template/">Adding Rich R Content</a></h2>
   
   <p>
-    <p>With a bit of tweaking, you can create rich documents with R markdown that combine text, figures, equations and tables that are generated by R on the fly. Now if only blogs could get a DOI…</p>
+    <p>With a bit of tweaking, you can create rich documents with R markdown that combine text, figures, equations and tables that are generated by R on the fly. Now if only blogs could get a DOI&#8230;</p>
+
+
 
 
   </p>
@@ -166,6 +403,8 @@ in
   
   <p>
     <p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com">http://rmarkdown.rstudio.com</a>.</p>
+
+
 
 
   </p>
@@ -217,9 +456,6 @@ in
 
 <div class="col-md-2">
   <div class="social-icon-list">
-   <a title="CV" href="Breckeimer_CV_2014.pdf"><img src="/images/glyphicons_010_envelope.png"/></a>
-    <a title="Publications" href="/pubs.html"><img src="/images/glyphicons_137_cogwheels.png"/></a>
-    <a title="Lab" href="http://faculty.washington.edu/jhrl/Index.html"><img src="/images/glyphicons_024_parents.png"/></a>
     
     <a href="https://twitter.com/ibreckhe"><img src="/images/glyphicons_social_31_twitter.png"/></a>
     
@@ -229,7 +465,7 @@ in
     
 
     
-    <a href="mailto:ibreckhe@uw.edu"><img src="/images/glyphicons_social_39_e-mail.png"/></a>
+    <a href="mailto:mailto:ibreckhe@uw.edu"><img src="/images/glyphicons_social_39_e-mail.png"/></a>
     
   </div>
 </div>

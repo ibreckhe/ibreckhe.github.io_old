@@ -32,23 +32,54 @@
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
 
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- Leaflet maps -->
+<script src="https://rstudio.github.io/leaflet/libs/jquery/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://rstudio.github.io/leaflet/libs/bootstrap/css/flatly.min.css" rel="stylesheet" />
+<script src="https://rstudio.github.io/leaflet/libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://rstudio.github.io/leaflet/libs/bootstrap/shim/html5shiv.min.js"></script>
+<script src="https://rstudio.github.io/leaflet/libs/bootstrap/shim/respond.min.js"></script>
+<script src="https://rstudio.github.io/leaflet/libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="https://rstudio.github.io/leaflet/libs/leaflet/leaflet.css" rel="stylesheet" />
+<script src="https://rstudio.github.io/leaflet/libs/leaflet/leaflet.js"></script>
+<link href="https://rstudio.github.io/leaflet/libs/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="https://rstudio.github.io/leaflet/libs/leaflet-binding/leaflet.js"></script>
+
 </head>
 
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
   <body>
     <a href="/" class="home-icon">
       <img src="/images/home.png"/>
@@ -85,9 +116,10 @@ in
 
 
         </div>
-        <p>My lab has been working on a project forecasting how the timing of flowering will vary over space and through time with climate change. To do this well, we need robust ways to quantify shifts in phenological timing. The approach we have taken so-far is to fit relatively simple functions to the observed data, but how do we quantify the amount of shift? Here’s where numerical integration comes in. Here’s an example with some simulated data. I’ve borrowed some of this code from <a href="http://stats.stackexchange.com/questions/12209/percentage-of-overlapping-regions-of-two-normal-distributions">here</a>.</p>
+        <p>My lab has been working on a project forecasting how the timing of flowering will vary over space and through time with climate change. To do this well, we need robust ways to quantify shifts in phenological timing. The approach we have taken so-far is to fit relatively simple functions to the observed data, but how do we quantify the amount of shift? Here&#8217;s where numerical integration comes in. Here&#8217;s an example with some simulated data. I&#8217;ve borrowed some of this code from <a href="http://stats.stackexchange.com/questions/12209/percentage-of-overlapping-regions-of-two-normal-distributions">here</a>.</p>
 
 <!-- more -->
+
 
 <p><img src="/images/Rainier_Meadow.JPG" alt="Rainier Meadow" /></p>
 
@@ -97,14 +129,14 @@ in
 f2 &lt;- function(x,a2,b2,c2) { exp(a2 + b2 * log(x) + c2 * log(x)^2)/(1 + exp(a2 + b2 * log(x) + c2 * log(x)^2)) }
 </code></pre>
 
-<p>Next we want to convert the two functions into density functions (meaning that areas under the curves should sum to one). I’m doing this numerically to avoid a nasty integral. This works well unless the areas under the curve are really small.</p>
+<p>Next we want to convert the two functions into density functions (meaning that areas under the curves should sum to one). I&#8217;m doing this numerically to avoid a nasty integral. This works well unless the areas under the curve are really small.</p>
 
 <pre><code>f1_dens &lt;- function(x,a1,b1,c1) { 
   y &lt;- f1(x,a1,b1,c1)
   yi &lt;- integrate(f1, -Inf, +Inf, a1=a1, b1=b1, c1=c1)
   return(y/yi[[1]])
 }
- 
+
 f2_dens &lt;- function(x,a2,b2,c2) { 
   y &lt;- f2(x,a2,b2,c2)
   yi &lt;- integrate(f2, 1e-10, +Inf, a2=a2, b2=b2, c2=c2)
@@ -126,28 +158,28 @@ f2_dens &lt;- function(x,a2,b2,c2) {
 <pre><code>a1 &lt;- -65
 b1 &lt;- 40
 c1 &lt;- -6
- 
+
 a2 &lt;- -2
 b2 &lt;- 7
 c2 &lt;- -6
 xs &lt;- seq(0.0001,5,by=0.01)
- 
+
 y1s &lt;- f1(xs,a1,b1,c1)
 y2s &lt;- f2(xs,a2,b2,c2)
 y1d &lt;- f1_dens(xs,a1,b1,c1)
 y2d &lt;- f2_dens(xs,a2,b2,c2)
- 
+
 yid &lt;- min_f1f2_dens(xs, a1, b1, c1, a2, b2, c2)
 xpd &lt;- c(xs, xs[1])
 ypd &lt;- c(yid, yid[1])
- 
+
 par(mfrow=c(1,1))
 plot(xs, y1s, type="n", ylim=c(0, max(y1d,y2d)),xlab="Time", ylab="Flowering Density")
 lines(xs, y1d, lty="solid")
 lines(xs, y2d, lty="dotted")
 </code></pre>
 
-<p><img src="/images/figure/unnamed-chunk-4.png" alt="plot of chunk unnamed-chunk-4" /> </p>
+<p><img src="/images/figure/unnamed-chunk-4.png" alt="plot of chunk unnamed-chunk-4" /></p>
 
 <p>The last step is to compute the area where the two curves intersect.</p>
 
@@ -165,7 +197,7 @@ lines(xs, y2d, lty="dotted")
 title(main=paste("Overlap: ",round(over_dens[[1]],2)))
 </code></pre>
 
-<p><img src="/images/figure/unnamed-chunk-6.png" alt="plot of chunk unnamed-chunk-6" /> </p>
+<p><img src="/images/figure/unnamed-chunk-6.png" alt="plot of chunk unnamed-chunk-6" /></p>
 
 <p>There are some analytical ways to do this for polynomial and Gaussian functions, but this approach is agnostic about what the functional form of the phenology curves are, so long as they have a finite integral.</p>
 
@@ -185,6 +217,8 @@ title(main=paste("Overlap: ",round(over_dens[[1]],2)))
         
 
         
+          <a class="pull-right" href="/blog/2015/03/16/leaflet-maps/" title="Next Post: Easy web maps with R and leaflet">Next: Easy web maps with R and leaflet &raquo;</a>
+        
       </div>
     </div>
   </div>
@@ -199,9 +233,6 @@ title(main=paste("Overlap: ",round(over_dens[[1]],2)))
 
 <div class="col-md-2">
   <div class="social-icon-list">
-   <a title="CV" href="Breckeimer_CV_2014.pdf"><img src="/images/glyphicons_010_envelope.png"/></a>
-    <a title="Publications" href="/pubs.html"><img src="/images/glyphicons_137_cogwheels.png"/></a>
-    <a title="Lab" href="http://faculty.washington.edu/jhrl/Index.html"><img src="/images/glyphicons_024_parents.png"/></a>
     
     <a href="https://twitter.com/ibreckhe"><img src="/images/glyphicons_social_31_twitter.png"/></a>
     
@@ -211,7 +242,7 @@ title(main=paste("Overlap: ",round(over_dens[[1]],2)))
     
 
     
-    <a href="mailto:ibreckhe@uw.edu"><img src="/images/glyphicons_social_39_e-mail.png"/></a>
+    <a href="mailto:mailto:ibreckhe@uw.edu"><img src="/images/glyphicons_social_39_e-mail.png"/></a>
     
   </div>
 </div>

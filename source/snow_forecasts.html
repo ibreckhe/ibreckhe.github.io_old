@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset=utf-8 />
-<title>Mt. Rainier National Park Snow Melt Forecast</title>
+<title>2017 Mt. Rainier National Park Snow Melt Forecast</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
 <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
@@ -30,10 +30,11 @@
 <div id='legend' style='display:none;'>
   <h2>Predicted Last Snow Date</h2>
   <nav class='legend clearfix'>
-	<img src="https://ibreckhe.github.io/images/legend_5_15_16.png" width=250 alt="Map Legend">
-	<p>Forecast generated May 27th, 2016</p>
-    <small>&#169; 2016 Ian Breckheimer <a href="https://ibreckhe.github.io/blog/2016/05/01/snow-forecasts/">About this Forecast</a></small>
+	<img src="https://ibreckhe.github.io/images/legend_6_7_17.png" width=250 alt="Map Legend">
+	<p>Forecast generated June 6th, 2017</p>
+    <small>&#169; 2017 Ian Breckheimer <a href="https://ibreckhe.github.io/blog/2016/05/01/snow-forecasts/">About this Forecast</a></small>
 </div>
+
 <div id='map' class='light'></div>
 
 <script>
@@ -43,12 +44,10 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiaWJyZWNraGUiLCJhIjoidVNHX1VpRSJ9.9fPQ1A3rdxyC
   map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
 L.control.layers({
-	'Most Recent Forecast': L.mapbox.styleLayer('mapbox://styles/ibreckhe/cioqd8qem0002aunibbo3gxj6').addTo(map),
-    'May 15th Forecast': L.mapbox.styleLayer('mapbox://styles/ibreckhe/cio95cb3w001ralne5xirj550'),
-    'April 28th Forecast': L.mapbox.styleLayer('mapbox://styles/ibreckhe/cinmfv0wb002badncinrp6233')
+	'June 7th 2017 Forecast': L.mapbox.styleLayer('mapbox://styles/ibreckhe/cioqd8qem0002aunibbo3gxj6').addTo(map),
+    'May 27th 2016 Forecast': L.mapbox.styleLayer('mapbox://styles/ibreckhe/cj3nb93ec001f2sm9uyu1gr2b')
 }).addTo(map);  
 
-</script>
 </script>
 </body>
 </html>

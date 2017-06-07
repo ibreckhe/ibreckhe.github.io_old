@@ -26,7 +26,7 @@ As of June 7th, 2017, I'm making the following projections for snow melt timing 
 
 **Meadows near Tipsoo Lake (Chinook Pass)** July 15th - July 25th
 
-<a href="http://tinyplant.org/snow_forecasts"><img src="/images/forecast_6_7_2017.png" alt="Snow Forecast Example" /></a>
+<a href="http://tinyplant.org/snow_forecasts"><img width=800 src="/images/forecast_6_7_17.png" alt="Snow Forecast Example" /></a>
 
 ## How is this forecast generated?
 

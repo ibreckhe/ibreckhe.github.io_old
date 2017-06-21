@@ -31,7 +31,7 @@
   <h2>Predicted Last Snow Date</h2>
   <nav class='legend clearfix'>
 	<img src="https://ibreckhe.github.io/images/legend_6_7_17.png" width=250 alt="Map Legend">
-	<p>Forecast generated June 6th, 2017</p>
+	<p>Forecast generated June 21st, 2017</p>
     <small>&#169; 2017 Ian Breckheimer <a href="https://ibreckhe.github.io/blog/2016/05/01/snow-forecasts/">About this Forecast</a></small>
 </div>
 
@@ -44,7 +44,8 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiaWJyZWNraGUiLCJhIjoidVNHX1VpRSJ9.9fPQ1A3rdxyC
   map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
 L.control.layers({
-	'June 7th 2017 Forecast': L.mapbox.styleLayer('mapbox://styles/ibreckhe/cioqd8qem0002aunibbo3gxj6').addTo(map),
+	'June 21st 2017 Forecast': L.mapbox.styleLayer('mapbox://styles/ibreckhe/cioqd8qem0002aunibbo3gxj6').addTo(map),
+	'June 7th 2017 Forecast': L.mapbox.styleLayer('mapbox://styles/ibreckhe/cj476odg50wt12so4ryu039rw').addTo(map),
     'May 27th 2016 Forecast': L.mapbox.styleLayer('mapbox://styles/ibreckhe/cj3nb93ec001f2sm9uyu1gr2b')
 }).addTo(map);  
 

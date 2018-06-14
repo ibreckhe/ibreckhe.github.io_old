@@ -130,7 +130,7 @@ Now we can add the points to our map:
                      weight=0.5)
     m
 
-![plot of chunk unnamed-chunk-12](/images/figure/unnamed-chunk-12-1.png)
+    ## Error in (function (url = NULL, file = "webshot.png", vwidth = 992, vheight = 744, : webshot.js returned failure value: 2
  
 ##Adding a legend##
  
@@ -169,7 +169,7 @@ Finally we can add the HTML legend including the image we just created:
     m <- m %>% addTiles(MBTemplate,attribution=leg_html)
     m
 
-![plot of chunk unnamed-chunk-14](/images/figure/unnamed-chunk-14-1.png)
+    ## Error in (function (url = NULL, file = "webshot.png", vwidth = 992, vheight = 744, : webshot.js returned failure value: 2
  
 ##Adding interactive content##
  
@@ -188,7 +188,7 @@ Using the leaflet javascript library with tools like D3 allow for virtually unli
     m <- m %>% addMarkers(lat=popups[,1],lng=popups[,2],popup=popups$Label,options=markerOptions(clickable=TRUE))
     m
 
-![plot of chunk unnamed-chunk-15](/images/figure/unnamed-chunk-15-1.png)
+    ## Error in (function (url = NULL, file = "webshot.png", vwidth = 992, vheight = 744, : webshot.js returned failure value: 2
 We've now labeled the three of the most-photographed locations on our map! Click on the markers to see the pop-ups.
  
 ##Publishing the map##

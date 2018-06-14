@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Updated 2017 Snow Melt Forecasts for Mt. Rainier National Park"
-date: 2017-06-07 09:00:00
+date: 2017-06-21 09:00:00
 comments: true
 categories: [R, maps, GIS, MapBox]
 published: false
@@ -14,17 +14,17 @@ The link to the most up-to-date forecast map is [here](https://ibreckhe.github.i
 
 <!-- more -->
 
-As of June 7th, 2017, I'm making the following projections for snow melt timing for key parts of Mt. Rainier:
+As of June 21st, 2017, I'm making the following projections for snow melt timing for key parts of Mt. Rainier:
 
-**Meadows around Reflection Lakes:** July 5th - July 15th
+**Meadows around Reflection Lakes:** July 1st - July 10th
 
-**Paradise Park above Jackson Visitor Center:** July 25th - August 5th
+**Paradise Park above Jackson Visitor Center:** July 20th - August 1st
 
 **Yakima Park around Sunrise Visitor Center:** July 10th - July 20th
 
-**Lower Spray Park above Mowich Lake Camp:** July 20th - August 1st
+**Lower Spray Park above Mowich Lake Camp:** July 15th - July 25th
 
-**Meadows near Tipsoo Lake (Chinook Pass)** July 15th - July 25th
+**Meadows near Tipsoo Lake (Chinook Pass)** July 5th - July 15th
 
 <a href="http://tinyplant.org/snow_forecasts"><img width=800 src="/images/forecast_6_7_17.png" alt="Snow Forecast Example" /></a>
 

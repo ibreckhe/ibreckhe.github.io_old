@@ -45,9 +45,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 *Step 3:* Download Sample Data
 
-- [Full Resolution Data (Fast Laptop)](http://tinyplant.org/RMBL_Drone_Workshop_data_2018.zip)
+- [Full Resolution Data (For Fast Computers)](http://tinyplant.org/RMBL_Drone_Workshop_data_2018.zip)
 
-- [Reduced Resolution Data (Slow Laptop)](http://tinyplant.org/RMBL_Drone_Workshop_data_2018_small.zip)
+- [Reduced Resolution Data (For Slower Computers)](http://tinyplant.org/RMBL_Drone_Workshop_data_2018_small.zip)
 
 *Step 4:* Follow along with the [Presentation](http://tinyplant.org/RMBL_Drone_Workshop_2018.html)
 

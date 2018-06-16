@@ -128,7 +128,7 @@ knitr::opts_chunk$set(echo = FALSE)
 > - *Modified RGB/NIR Cameras:* MapIR Survey 3 (80g, ~$500)
 > - *True Multispectral Cameras:* Parrot Sequoia+ (~100g, ~$3000)
 > - *Thermal Imaging:* FLIR Duo Pro R (~100g, ~$4000)
-> - *Hyperspectral Imaging:* Headwall Nano-hyperspec (~300g, ~$8000)
+> - *Hyperspectral Imaging:* Headwall Nano-hyperspec (~300g, ~$22000)
 	
 <div class="centered">
 <img src="./images/spectrum.jpg" width="500px" />

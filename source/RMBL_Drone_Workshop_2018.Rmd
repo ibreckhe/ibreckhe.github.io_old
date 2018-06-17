@@ -43,11 +43,13 @@ knitr::opts_chunk$set(echo = FALSE)
 *Step 2:* Install GIS Software: 
 [QGIS (Free, Open-source)](https://qgis.org/en/site/forusers/download.html)
 
-*Step 3:* Download Sample Data
+*Step 3:* Download Flight Planning Files and Sample Imagery
 
-- [Full Resolution Data (For Fast Computers)](http://tinyplant.org/RMBL_Drone_Workshop_data_2018.zip)
+- [Flight Planning Files](https://drive.google.com/file/d/1qjOCgNyQwAmffQ3zDQwJ_RT7NGUzFZ6S/view?usp=sharing)
 
-- [Reduced Resolution Data (For Slower Computers)](http://tinyplant.org/RMBL_Drone_Workshop_data_2018_small.zip)
+- [Full Resolution Imagery (For Fast Computers)](https://drive.google.com/open?id=1PdC8oScoS9S5h1aXruN__H6WxoCkP6o0)
+
+- [Reduced Resolution Imagery (For Slower Computers)](https://drive.google.com/open?id=1P7Ysw6fhwaNGODMpiGTaP42PaOU5SVKf)
 
 *Step 4:* Follow along with the [Presentation](http://tinyplant.org/RMBL_Drone_Workshop_2018.html)
 
